@@ -69,7 +69,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.guess_that_beast/com.example.guess_that_beast.HelloApplication
+                            <mainClass>com.example.guess_that_beast/com.example.guess_that_beast.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
