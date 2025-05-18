@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Bobrito Bandito",
+    "image": "/img/bobrito bandito.jpg",
+    "options": ["Bobrito Bandito", "Bombardino Crocodilo", "Boneka Ambalabu", "Frigo Camelo"],
+    "correctAnswer": "Bobrito Bandito"
+  },
+  {
+    "name": "Bombardino Crocodilo",
+    "image": "/img/bombardino brocodilo.webp",
+    "options": ["Bobrito Bandito", "Bombardino Crocodilo", "Boneka Ambalabu", "Frigo Camelo"],
+    "correctAnswer": "Bombardino Crocodilo"
+  }
+]
