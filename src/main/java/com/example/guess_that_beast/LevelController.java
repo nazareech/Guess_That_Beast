@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import javax.print.attribute.standard.Media;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,11 +24,15 @@ public class LevelController {
     public void initializeWithMeme(Meme meme) {
         // Встановлюємо зображення
         try {
-            Image image = new Image(meme.getImageUrl());
+            Image image = new Image(getClass().getResource(meme.getImage()).toExternalForm());
+//            Image image = new Image(meme.getImage());
             imageView.setImage(image);
         } catch (Exception e) {
             System.err.println("Error loading image: " + e.getMessage());
         }
+
+        System.out.println(getClass().getResource(meme.getImage()));
+
 
         // Встановлюємо текст для кнопок
         List<String> options = meme.getOptions();

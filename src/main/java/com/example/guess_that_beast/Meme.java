@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Meme {
     private String name;
-    private String imageUrl;
+    private String image;
     private List<String> options;
     private String correctAnswer;
 
@@ -15,8 +15,8 @@ public class Meme {
         return name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
     public List<String> getOptions() {

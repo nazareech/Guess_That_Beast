@@ -8,7 +8,13 @@
   {
     "name": "Bombardino Crocodilo",
     "image": "/img/bombardino brocodilo.webp",
-    "options": ["Bobrito Bandito", "Bombardino Crocodilo", "Boneka Ambalabu", "Frigo Camelo"],
+    "options": ["Tripi Tropa Tropa Tripa", "Bombardino Crocodilo", "Boneka Ambalabu", "Frigo Camelo"],
     "correctAnswer": "Bombardino Crocodilo"
+  },
+  {
+    "name": "TungTungTungSahur.jpg",
+    "image": "/img/TungTungTungSahur.jpg",
+    "options": ["TungTungTungSahur", "Ballerina Kapuchina", "Boneka Ambalabu", "Frigo Camelo"],
+    "correctAnswer": "TungTungTungSahur"
   }
 ]

@@ -7,6 +7,9 @@ module com.example.guess_that_beast {
     requires com.fasterxml.jackson.databind;
     requires java.desktop;
 
-    opens com.example.guess_that_beast to javafx.fxml;
     exports com.example.guess_that_beast;
+    opens com.example.guess_that_beast to javafx.fxml, com.fasterxml.jackson.databind;
+
 }
+
+
