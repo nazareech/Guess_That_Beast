@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class Controller {
@@ -49,30 +48,19 @@ public class Controller {
     //Перехід до рівня
     @FXML
     private void openLevel(ActionEvent event) throws IOException {
-        try {
-            Button clickedButton = (Button) event.getSource();
-            String buttonId = clickedButton.getId();
+        Button clickedButton = (Button) event.getSource();
+        String buttonId = clickedButton.getId();
 
-            String fxmlPath = "/com/example/guess_that_beast/view-level-" + buttonId + ".fxml";
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Parent root = loader.load();
+        String fxmlPath = "/com/example/guess_that_beast/view-level.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent root = loader.load();
 
-            List<Meme> memes = MemeLoader.loadMemes();
-            if (memes.isEmpty()) {
-                throw new IllegalStateException("No memes loaded");
-            }
+        List<Meme> memes = MemeLoader.loadMemes();
+        LevelController levelController = loader.getController();
+        levelController.initializeWithMemes(memes); // Тепер передаємо всі меми
 
-            LevelController levelController = loader.getController();
-            levelController.initializeWithMeme(memes.get(0));
-
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            System.err.println("Error loading level: " + e.getMessage());
-            e.printStackTrace();
-            // Можна додати показ повідомлення про помилку користувачу
-        }
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
-
 }

@@ -18,22 +18,22 @@
   </rowConstraints>
    <children>
 
-      <Button fx:id="option1Button" mnemonicParsing="false" prefHeight="29.0" prefWidth="143.0" text="Bobrito bandito" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Button fx:id="option1Button" onAction="#handleAnswer" mnemonicParsing="false" prefHeight="29.0" prefWidth="143.0" text="Bobrito bandito" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="option2Button" mnemonicParsing="false" text="Frulli frulla" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Button fx:id="option2Button" onAction="#handleAnswer" mnemonicParsing="false" text="Frulli frulla" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="option3Button" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Tripi tropa Tropa tripa" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="option3Button" onAction="#handleAnswer" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Tripi tropa Tropa tripa" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="option4Button" mnemonicParsing="false" text="Frigo Camelo" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="option4Button" onAction="#handleAnswer" mnemonicParsing="false" text="Frigo Camelo" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </GridPane.margin>

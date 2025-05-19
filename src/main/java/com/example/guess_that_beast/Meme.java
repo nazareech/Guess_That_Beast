@@ -3,6 +3,7 @@ package com.example.guess_that_beast;
 import java.util.List;
 
 public class Meme {
+    private List<Meme> level;
     private String name;
     private String image;
     private List<String> options;
@@ -10,6 +11,7 @@ public class Meme {
 
 
     public Meme() {}
+
 
     public String getName() {
         return name;

@@ -15,7 +15,6 @@ public class Main extends Application {
         root.setTitle("Brain rot Animals!");
         root.setScene(scene);
         root.show();
-
     }
 
     public static void main(String[] args) {

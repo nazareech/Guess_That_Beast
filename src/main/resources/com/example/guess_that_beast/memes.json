@@ -2,19 +2,56 @@
   {
     "name": "Bobrito Bandito",
     "image": "/img/bobrito bandito.jpg",
-    "options": ["Bobrito Bandito", "Bombardino Crocodilo", "Boneka Ambalabu", "Frigo Camelo"],
+    "options": [
+      "Bobrito Bandito",
+      "Bombardino Crocodilo",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
     "correctAnswer": "Bobrito Bandito"
   },
   {
     "name": "Bombardino Crocodilo",
-    "image": "/img/bombardino brocodilo.webp",
-    "options": ["Tripi Tropa Tropa Tripa", "Bombardino Crocodilo", "Boneka Ambalabu", "Frigo Camelo"],
+    "image": "/img/BombardiroCrocodilo.jpg",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Bombardino Crocodilo",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
     "correctAnswer": "Bombardino Crocodilo"
   },
   {
-    "name": "TungTungTungSahur.jpg",
+    "name": "Tung Tung Tung Sahur",
     "image": "/img/TungTungTungSahur.jpg",
-    "options": ["TungTungTungSahur", "Ballerina Kapuchina", "Boneka Ambalabu", "Frigo Camelo"],
-    "correctAnswer": "TungTungTungSahur"
+    "options": [
+      "Tung Tung Tung Sahur",
+      "Ballerina Kapuchina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": "Tung Tung Tung Sahur"
+  },
+  {
+    "name": "Tripi Tropa Tropa Tripa",
+    "image": "/img/tripi tropa tropa tripa.jpg",
+    "options": [
+      "Bobrito Bandito",
+      "Tripi Tropa Tropa Tripa",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": "Tripi Tropa Tropa Tripa"
+  },
+  {
+    "name": "Trulimero Trulichina",
+    "image": "/img/trulimero trulichina.png",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": "Trulimero Trulichina"
   }
 ]
