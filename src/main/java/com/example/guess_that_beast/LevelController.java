@@ -45,28 +45,35 @@ public class LevelController {
     public void initializeWithMemes(List<Meme> memes) {
         this.allMemes = new ArrayList<>(memes);
         feedbackVBox.setVisible(false);
-        loadNextQuestion();
+
+        // Ініціалізація першого питання
+        if (!allMemes.isEmpty()) {
+            loadLevelQuestions();
+            loadNextQuestion(); // Тепер цей метод встановлює currentMeme
+        } else {
+            System.err.println("No memes loaded!");
+        }
+    }
+
+    private void loadLevelQuestions() {
+        int questionsCount = Math.min(5, allMemes.size());
+        currentLevelMemes = new ArrayList<>(allMemes.subList(0, questionsCount));
+        allMemes.removeAll(currentLevelMemes);
+        currentMemeIndex = 0;
     }
 
     private void loadNextQuestion() {
-        if (currentLevelMemes.isEmpty() && incorrectMemes.isEmpty() && !allMemes.isEmpty()) {
-            // Початок рівня - беремо перші 5 мемів
-            int questionsCount = Math.min(5, allMemes.size());
-            currentLevelMemes = new ArrayList<>(allMemes.subList(0, questionsCount));
-            allMemes.removeAll(currentLevelMemes);
-            currentMemeIndex = 0;
-        } else if (currentMemeIndex >= currentLevelMemes.size() && !incorrectMemes.isEmpty()) {
-            // Повторення неправильних відповідей
+        if (currentMemeIndex < currentLevelMemes.size()) {
+            currentMeme = currentLevelMemes.get(currentMemeIndex); // Ініціалізуємо поточний мем
+            displayMeme(currentMeme);
+        } else if (!incorrectMemes.isEmpty()) {
+            // Перехід до повторення неправильних відповідей
             currentLevelMemes = new ArrayList<>(incorrectMemes);
             incorrectMemes.clear();
             currentMemeIndex = 0;
-        }
-
-        if (currentMemeIndex < currentLevelMemes.size()) {
-            Meme currentMeme = currentLevelMemes.get(currentMemeIndex);
+            currentMeme = currentLevelMemes.get(currentMemeIndex);
             displayMeme(currentMeme);
         } else {
-            // Рівень завершено
             showLevelResults();
         }
     }
@@ -90,16 +97,21 @@ public class LevelController {
 
         // Ховаємо попередній фідбек та виключаємо кнопки
         hideFeedback();
-        enableAnswerButtons(false);
+        enableAnswerButtons(true);
     }
 
     @FXML
     private void handleAnswer(ActionEvent event) {
+        if (currentMeme == null) {
+            System.err.println("currentMeme is null!");
+            return;
+        }
+
         Button clickedButton = (Button) event.getSource();
         String selectedAnswer = clickedButton.getText();
 
         wasLastAnswerCorrect = selectedAnswer.equals(currentMeme.getCorrectAnswer());
-        // Показуємо відповідь
+
         showFeedback(wasLastAnswerCorrect, currentMeme.getCorrectAnswer());
         enableAnswerButtons(false);
     }
@@ -116,13 +128,14 @@ public class LevelController {
     private void showFeedback(boolean isCorrect, String correctAnswer) {
         feedbackVBox.setVisible(true);
         if (isCorrect) {
-            feedbackLabel.setText("Правильно!");
+            feedbackLabel.setText("Great!");
             feedbackLabel.setStyle("-fx-background-color: green; -fx-text-fill: white;");
             correctAnswerLabel.setText("");
         } else {
-            feedbackLabel.setText("Неправильно!");
+            feedbackLabel.setText("Your answer is incorrect!");
             feedbackLabel.setStyle("-fx-background-color: red; -fx-text-fill: white;");
-            correctAnswerLabel.setText("Правильна відповідь: " + correctAnswer);
+            correctAnswerLabel.setText("The correct answer is: " + correctAnswer);
+            correctAnswerLabel.setStyle("-fx-text-fill: green;");
 
             mistakes++;
         }
@@ -132,10 +145,10 @@ public class LevelController {
         feedbackVBox.setVisible(false);
     }
     private void enableAnswerButtons(boolean enabled) {
-        option1Button.setDisable(enabled);
-        option2Button.setDisable(enabled);
-        option3Button.setDisable(enabled);
-        option4Button.setDisable(enabled);
+        option1Button.setDisable(!enabled);
+        option2Button.setDisable(!enabled);
+        option3Button.setDisable(!enabled);
+        option4Button.setDisable(!enabled);
     }
 
 
@@ -144,14 +157,14 @@ public class LevelController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-results.fxml"));
             Parent root = loader.load();
 
-            int correctAnswers;
+            float correctAnswers;
             if((5 - mistakes) <= 0){
                 correctAnswers = 0;
             }else {
-                correctAnswers = 5 - mistakes;
+                correctAnswers = 100 - ((mistakes * 100) / 5);
             }
             ResultsController controller = loader.getController();
-            controller.setResults(correctAnswers, 5); // 5 - загальна кількість завдань
+            controller.setResults(correctAnswers, 100); // 5 - загальна кількість завдань
 
             Stage stage = (Stage) imageView.getScene().getWindow();
             stage.setScene(new Scene(root));

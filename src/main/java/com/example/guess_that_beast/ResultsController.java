@@ -15,8 +15,8 @@ public class ResultsController {
     @FXML
     private Label resultsLabel;
 
-    public void setResults(int correctAnswers, int totalQuestions) {
-        resultsLabel.setText(String.format("Результат: %d/%d", correctAnswers, totalQuestions));
+    public void setResults(float correctAnswers, float totalQuestions) {
+        resultsLabel.setText(String.format("Your result: " + correctAnswers + "/" + totalQuestions));
     }
 
     @FXML

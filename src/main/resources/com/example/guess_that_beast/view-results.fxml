@@ -9,5 +9,5 @@
 
 <VBox alignment="CENTER" spacing="20" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.guess_that_beast.ResultsController">
     <Label fx:id="resultsLabel" style="-fx-font-size: 24px;"/>
-    <Button text="Повернутися в меню" onAction="#goBack" style="-fx-font-size: 16px;"/>
+    <Button text="Get points" onAction="#goBack" style="-fx-font-size: 16px;"/>
 </VBox>
