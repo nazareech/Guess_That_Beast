@@ -7,16 +7,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
 
+
+
 public class Controller {
 
-    @FXML
-    private Text levelChoice;
+    @FXML private Text levelChoice;
+
+    @FXML private Label points;
 
     @FXML
     private Stage stage; // Поточна сцена
@@ -26,10 +30,12 @@ public class Controller {
 
     @FXML
     private void chooseAlevel(ActionEvent event) {
+
         Button clickedButton = (Button) event.getSource(); // Отримуємо кнопку, яка викликала подію
         String buttonId = clickedButton.getId();
 
         if ("level1".equals(buttonId)) {
+
             levelChoice.setText("Level 1");
         }else if ("level2".equals(buttonId)) {
             levelChoice.setText("Level 2");
@@ -43,6 +49,7 @@ public class Controller {
         }
         // Аналогічно для інших рівнів
         System.out.println("Вибрано рівень: " + buttonId);
+        viewPoints();
     }
 
     //Перехід до рівня
@@ -63,4 +70,11 @@ public class Controller {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    @FXML
+    private void viewPoints(){
+        points.setText("Points: 5");
+        System.out.println("Points: 5");
+    }
+
 }

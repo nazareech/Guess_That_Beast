@@ -56,5 +56,10 @@
                   <Font name="Open Sans Regular" size="24.0" />
                </font>
             </Text>
+      <Label fx:id="points" onDragDetected="#viewPoints" text="Label" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </GridPane.margin>
+      </Label>
          </children>
       </GridPane>
