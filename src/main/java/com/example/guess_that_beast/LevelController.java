@@ -45,6 +45,7 @@ public class LevelController {
     private boolean wasLastAnswerCorrect;
 
     private long levelStartTime;
+    private int currentLives;
 
     public void initializeWithMemes(List<Meme> memes) {
         this.allMemes = new ArrayList<>(memes);
@@ -59,6 +60,7 @@ public class LevelController {
         }
 
         levelStartTime = System.currentTimeMillis();
+        updateLivesDisplay(); // оновлення тексту на екрані
     }
 
     private void loadLevelQuestions() {
@@ -143,6 +145,9 @@ public class LevelController {
             correctAnswerLabel.setText("The correct answer is: " + correctAnswer);
             correctAnswerLabel.setStyle("-fx-text-fill: green;");
 
+            GameState.getInstance().loseLife();// зменшення життів
+            updateLivesDisplay();                // оновлення тексту на екрані
+
             mistakes++;
         }
     }
@@ -194,8 +199,8 @@ public class LevelController {
     }
 
     private void updateLivesDisplay(){
-        int getLives = GameState.getInstance().getLives();
-        lives.setText("Lives: " + getLives);
-        System.out.println("Lives: " + getLives);
+        currentLives = GameState.getInstance().getLives();
+        lives.setText("Lives: " + currentLives);
+        System.out.println("Lives: " + currentLives);
     }
 }
