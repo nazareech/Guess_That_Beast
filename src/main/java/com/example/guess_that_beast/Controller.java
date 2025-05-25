@@ -20,7 +20,7 @@ public class Controller {
 
     @FXML private Text levelChoice;
 
-    @FXML private Label points;
+    @FXML private Label lives;
 
     @FXML
     private Stage stage; // Поточна сцена
@@ -29,13 +29,17 @@ public class Controller {
     private Parent root; // Корінь нової сцени
 
     @FXML
+    private void initialize() {
+        updateLivesDisplay();
+    }
+
+    @FXML
     private void chooseAlevel(ActionEvent event) {
 
         Button clickedButton = (Button) event.getSource(); // Отримуємо кнопку, яка викликала подію
         String buttonId = clickedButton.getId();
 
         if ("level1".equals(buttonId)) {
-
             levelChoice.setText("Level 1");
         }else if ("level2".equals(buttonId)) {
             levelChoice.setText("Level 2");
@@ -49,7 +53,6 @@ public class Controller {
         }
         // Аналогічно для інших рівнів
         System.out.println("Вибрано рівень: " + buttonId);
-        viewPoints();
     }
 
     //Перехід до рівня
@@ -71,10 +74,10 @@ public class Controller {
         stage.show();
     }
 
-    @FXML
-    private void viewPoints(){
-        points.setText("Points: 5");
-        System.out.println("Points: 5");
+    private void updateLivesDisplay(){
+        int getLives = GameState.getInstance().getLives();
+        lives.setText("Lives: " + getLives);
+        System.out.println("Lives: " + getLives);
     }
 
 }

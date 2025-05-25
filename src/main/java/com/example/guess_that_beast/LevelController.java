@@ -28,6 +28,8 @@ public class LevelController {
     @FXML private Button option4Button;
     @FXML private ImageView imageView;
 
+    @FXML private Label lives;
+
     //Fail answer
     @FXML private VBox feedbackVBox;
     @FXML private Label feedbackLabel;
@@ -42,6 +44,8 @@ public class LevelController {
     private Meme currentMeme;
     private boolean wasLastAnswerCorrect;
 
+    private long levelStartTime;
+
     public void initializeWithMemes(List<Meme> memes) {
         this.allMemes = new ArrayList<>(memes);
         feedbackVBox.setVisible(false);
@@ -53,6 +57,8 @@ public class LevelController {
         } else {
             System.err.println("No memes loaded!");
         }
+
+        levelStartTime = System.currentTimeMillis();
     }
 
     private void loadLevelQuestions() {
@@ -157,6 +163,10 @@ public class LevelController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-results.fxml"));
             Parent root = loader.load();
 
+            long duration = System.currentTimeMillis() - levelStartTime;
+            long seconds = duration / 1000;
+            System.out.println("Рівень пройдено за " + seconds + " секунд");
+
             float correctAnswers;
             if((5 - mistakes) <= 0){
                 correctAnswers = 0;
@@ -164,7 +174,7 @@ public class LevelController {
                 correctAnswers = 100 - ((mistakes * 100) / 5);
             }
             ResultsController controller = loader.getController();
-            controller.setResults(correctAnswers, 100); // 5 - загальна кількість завдань
+            controller.setResults(correctAnswers, 100, seconds); // 5 - загальна кількість завдань
 
             Stage stage = (Stage) imageView.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -181,5 +191,11 @@ public class LevelController {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private void updateLivesDisplay(){
+        int getLives = GameState.getInstance().getLives();
+        lives.setText("Lives: " + getLives);
+        System.out.println("Lives: " + getLives);
     }
 }

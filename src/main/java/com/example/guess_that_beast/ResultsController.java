@@ -15,8 +15,8 @@ public class ResultsController {
     @FXML
     private Label resultsLabel;
 
-    public void setResults(float correctAnswers, float totalQuestions) {
-        resultsLabel.setText(String.format("Your result: " + correctAnswers + "/" + totalQuestions));
+    public void setResults(float correctAnswers, float totalQuestions, long seconds) {
+        resultsLabel.setText(String.format("Your result: " + correctAnswers + "/" + totalQuestions + "\nYour time: " + seconds + " seconds"));
     }
 
     @FXML
