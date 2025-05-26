@@ -1,6 +1,5 @@
 package com.example.guess_that_beast;
 
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +12,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class LevelController {
     @FXML private Button option1Button;
@@ -35,6 +32,7 @@ public class LevelController {
     @FXML private Label feedbackLabel;
     @FXML private Label correctAnswerLabel;
     @FXML private Button nextButton;
+    @FXML private Button exitButton;
     private int mistakes = 0;
 
     private List<Meme> allMemes;
@@ -49,7 +47,9 @@ public class LevelController {
 
     public void initializeWithMemes(List<Meme> memes) {
         this.allMemes = new ArrayList<>(memes);
-        feedbackVBox.setVisible(false);
+        feedbackVBox.setVisible(false); // Виключаємо вікно фітбеку
+        exitButton.setVisible(false);   // Виключаємо кнопку виходу з рівня
+
 
         // Ініціалізація першого питання
         if (!allMemes.isEmpty()) {
@@ -125,7 +125,7 @@ public class LevelController {
     }
 
     @FXML
-    private void handleNextButton() {
+    private void handleNextButton(ActionEvent event) throws IOException {
         if (!wasLastAnswerCorrect) {
             incorrectMemes.add(currentMeme);
         }
@@ -135,26 +135,50 @@ public class LevelController {
 
     private void showFeedback(boolean isCorrect, String correctAnswer) {
         feedbackVBox.setVisible(true);
+        exitButton.setVisible(false);
         if (isCorrect) {
             feedbackLabel.setText("Great!");
             feedbackLabel.setStyle("-fx-background-color: green; -fx-text-fill: white;");
+            correctAnswerLabel.setStyle("-fx-text-fill: white;");
             correctAnswerLabel.setText("");
+            nextButton.setText("Next");
+            nextButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
+
         } else {
             feedbackLabel.setText("Your answer is incorrect!");
             feedbackLabel.setStyle("-fx-background-color: red; -fx-text-fill: white;");
             correctAnswerLabel.setText("The correct answer is: " + correctAnswer);
             correctAnswerLabel.setStyle("-fx-text-fill: green;");
+            nextButton.setText("Next");
+            nextButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
 
-            GameState.getInstance().loseLife();// зменшення життів
-            updateLivesDisplay();                // оновлення тексту на екрані
+
+            GameState.getInstance().loseLife(); // зменшення життів
+            updateLivesDisplay();               // оновлення Життів на екрані
 
             mistakes++;
         }
     }
 
+    private void confirmationOfMenuReturning () {
+        feedbackVBox.setVisible(true);
+        feedbackLabel.setText("Do you really want to go back to the menu?");
+        feedbackLabel.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
+        correctAnswerLabel.setStyle("-fx-background-color: blue; -fx-text-fill: red;");
+        correctAnswerLabel.setText("You will lose your points ");
+
+        nextButton.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
+        nextButton.setText("Continue");
+        exitButton.setVisible(true); // Включаємо кнопку виходу з рівня
+        exitButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+
+
+    }
+
     private void hideFeedback() {
         feedbackVBox.setVisible(false);
     }
+
     private void enableAnswerButtons(boolean enabled) {
         option1Button.setDisable(!enabled);
         option2Button.setDisable(!enabled);
@@ -162,8 +186,7 @@ public class LevelController {
         option4Button.setDisable(!enabled);
     }
 
-
-        private void showLevelResults() {
+    private void showLevelResults() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-results.fxml"));
             Parent root = loader.load();
@@ -189,7 +212,18 @@ public class LevelController {
     }
 
     @FXML
-    private void goBack(ActionEvent event) throws IOException {
+    private void goToMenuButton(ActionEvent event) {
+
+        Button clickedButton = (Button) event.getSource();
+        String clickedButtonId = clickedButton.getId();
+        if (clickedButtonId.equals("goToMain")) {
+            confirmationOfMenuReturning();
+        }
+    }
+
+    // Вихід до меню
+    @FXML
+    private void exitToMenu (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-main-scene.fxml"));
         Parent root = loader.load();
 

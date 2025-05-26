@@ -76,14 +76,14 @@
             <Image url="@../../../img/tripi tropa tropa tripa.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="main" alignment="CENTER" mnemonicParsing="false" onAction="#goBack" prefHeight="28.0" prefWidth="78.0" text="Beack" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+      <Button fx:id="goToMain" alignment="CENTER" mnemonicParsing="false" onAction="#goToMenuButton" prefHeight="28.0" prefWidth="78.0" text="Beack" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
            <GridPane.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
            </GridPane.margin>
        </Button>
       <VBox fx:id="feedbackVBox" alignment="CENTER" prefHeight="208.0" prefWidth="347.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <children>
-            <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" text="Your answer is incorrect">
+            <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="350.0" text="Your answer is incorrect">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -107,9 +107,14 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="exitButton" layoutX="131.0" layoutY="145.0" mnemonicParsing="false" onAction="#exitToMenu" prefHeight="39.0" prefWidth="106.0" text="Exit">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
-      <Label fx:id="lives" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+      <Label fx:id="lives" text="Lives" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
