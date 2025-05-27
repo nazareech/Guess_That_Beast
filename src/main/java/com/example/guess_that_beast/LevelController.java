@@ -33,6 +33,7 @@ public class LevelController {
     @FXML private Label correctAnswerLabel;
     @FXML private Button nextButton;
     @FXML private Button exitButton;
+    @FXML private Button goToMain;
     private int mistakes = 0;
 
     private List<Meme> allMemes;
@@ -49,7 +50,6 @@ public class LevelController {
         this.allMemes = new ArrayList<>(memes);
         feedbackVBox.setVisible(false); // Виключаємо вікно фітбеку
         exitButton.setVisible(false);   // Виключаємо кнопку виходу з рівня
-
 
         // Ініціалізація першого питання
         if (!allMemes.isEmpty()) {
@@ -126,6 +126,7 @@ public class LevelController {
 
     @FXML
     private void handleNextButton(ActionEvent event) throws IOException {
+
         if (!wasLastAnswerCorrect) {
             incorrectMemes.add(currentMeme);
         }
@@ -134,8 +135,7 @@ public class LevelController {
     }
 
     private void showFeedback(boolean isCorrect, String correctAnswer) {
-        feedbackVBox.setVisible(true);
-        exitButton.setVisible(false);
+
         if (isCorrect) {
             feedbackLabel.setText("Great!");
             feedbackLabel.setStyle("-fx-background-color: green; -fx-text-fill: white;");
@@ -145,6 +145,8 @@ public class LevelController {
             nextButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
 
         } else {
+            mistakes++;
+
             feedbackLabel.setText("Your answer is incorrect!");
             feedbackLabel.setStyle("-fx-background-color: red; -fx-text-fill: white;");
             correctAnswerLabel.setText("The correct answer is: " + correctAnswer);
@@ -152,11 +154,15 @@ public class LevelController {
             nextButton.setText("Next");
             nextButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
 
-
             GameState.getInstance().loseLife(); // зменшення життів
             updateLivesDisplay();               // оновлення Життів на екрані
+        }
 
-            mistakes++;
+        if (GameState.getInstance().getLives() > 0) {
+            feedbackVBox.setVisible(true);
+            exitButton.setVisible(false);
+        }else if (GameState.getInstance().getLives() == 0) {
+            coverageOfEndOfLife();
         }
     }
 
@@ -171,8 +177,19 @@ public class LevelController {
         nextButton.setText("Continue");
         exitButton.setVisible(true); // Включаємо кнопку виходу з рівня
         exitButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+    }
 
+    private void coverageOfEndOfLife () {
+        feedbackVBox.setVisible(true);
+        feedbackLabel.setText("Unfortunately, you have lost all your lives");
+        feedbackLabel.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
+        correctAnswerLabel.setStyle("-fx-background-color: blue; -fx-text-fill: red;");
+        correctAnswerLabel.setText("You will lose your points");
 
+        goToMain.setDisable(true);
+        nextButton.setVisible(false);
+        exitButton.setVisible(true); // Включаємо кнопку виходу з рівня
+        exitButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
     }
 
     private void hideFeedback() {
