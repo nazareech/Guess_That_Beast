@@ -1,25 +1,25 @@
 [
   {
-    "name": "Bobrito Bandito",
-    "image": "/img/bobrito bandito.jpg",
+    "name": "Ballerina Cappuccina",
+    "image": "/img/Ballerina Cappuccina.png",
     "options": [
       "Bobrito Bandito",
       "Bombardino Crocodilo",
       "Boneka Ambalabu",
       "Frigo Camelo"
     ],
-    "correctAnswer": "Bobrito Bandito"
+    "correctAnswer": "Ballerina Cappuccina"
   },
   {
-    "name": "Bombardino Crocodilo",
-    "image": "/img/BombardiroCrocodilo.jpg",
+    "name": "BOBRINNI COCOCOSSINI",
+    "image": "/img/BOBRINNI COCOCOSSINI.png",
     "options": [
       "Tripi Tropa Tropa Tripa",
-      "Bombardino Crocodilo",
+      "Bobrinni Cococossini",
       "Boneka Ambalabu",
       "Frigo Camelo"
     ],
-    "correctAnswer": "Bombardino Crocodilo"
+    "correctAnswer": "BOBRINNI COCOCOSSINI"
   },
   {
     "name": "Tung Tung Tung Sahur",
@@ -53,5 +53,285 @@
       "Frigo Camelo"
     ],
     "correctAnswer": "Trulimero Trulichina"
+  },
+
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
+  },
+  {
+    "name": "",
+    "image": "/img/",
+    "options": [
+      "Tripi Tropa Tropa Tripa",
+      "Trulimero Trulichina",
+      "Boneka Ambalabu",
+      "Frigo Camelo"
+    ],
+    "correctAnswer": ""
   }
-]
+  ]
