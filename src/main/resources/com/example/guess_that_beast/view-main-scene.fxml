@@ -18,32 +18,32 @@
          <children>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="305.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <Button fx:id="level1" alignment="CENTER" mnemonicParsing="false" onAction="#chooseAlevel"  text="Level 1" textAlignment="CENTER">
+                  <Button fx:id="level1" alignment="CENTER" mnemonicParsing="false" onAction="#openLevel"  text="Level 1" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="level2" mnemonicParsing="false" onAction="#chooseAlevel" text="Level 2">
+                  <Button fx:id="level2" mnemonicParsing="false" onAction="#openLevel" text="Level 2">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="level3" mnemonicParsing="false" onAction="#chooseAlevel" text="Level 3">
+                  <Button fx:id="level3" mnemonicParsing="false" onAction="#openLevel" text="Level 3">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="level4" mnemonicParsing="false" onAction="#chooseAlevel" text="Level 4">
+                  <Button fx:id="level4" mnemonicParsing="false" onAction="#openLevel" text="Level 4">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="level5" layoutX="68.0" layoutY="191.0" mnemonicParsing="false" onAction="#chooseAlevel" text="Level 4">
+                  <Button fx:id="level5" layoutX="68.0" layoutY="191.0" mnemonicParsing="false" onAction="#openLevel" text="Level 5">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-            <Button fx:id="1" layoutX="53.0" layoutY="200.0" mnemonicParsing="false" onAction="#openLevel" text="NewScene">
+            <Button fx:id="level6" layoutX="53.0" layoutY="200.0" mnemonicParsing="false" onAction="#openLevel" text="level 6">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>

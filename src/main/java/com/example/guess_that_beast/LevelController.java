@@ -46,8 +46,8 @@ public class LevelController {
     private long levelStartTime;
     private int currentLives;
 
-    public void initializeWithMemes(List<Meme> memes) {
-        this.allMemes = new ArrayList<>(memes);
+    public void initializeWithMemes(List<Meme> memes, int startMemIndex, int endMemIndex) {
+        this.allMemes = new ArrayList<>(memes.subList(startMemIndex, endMemIndex));
         feedbackVBox.setVisible(false); // Виключаємо вікно фітбеку
         exitButton.setVisible(false);   // Виключаємо кнопку виходу з рівня
 
