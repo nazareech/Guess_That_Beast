@@ -61,6 +61,9 @@ public class LevelController {
 
         levelStartTime = System.currentTimeMillis();
         updateLivesDisplay(); // оновлення тексту на екрані
+
+        // Фарбуємо кнопки
+        paintTheButtons();
     }
 
     private void loadLevelQuestions() {
@@ -253,5 +256,12 @@ public class LevelController {
         currentLives = GameState.getInstance().getLives();
         lives.setText("Lives: " + currentLives);
         System.out.println("Lives: " + currentLives);
+    }
+
+    private void paintTheButtons(){
+        option1Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
+        option2Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
+        option3Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
+        option4Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
     }
 }
