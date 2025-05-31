@@ -1,0 +1,16 @@
+.root{
+    -fx-background-color: fcfaf8;
+}
+
+.button{
+    -fx-background-color: f3ede7;
+    -fx-background-radius: 10px;
+    -fx-text-fill: black;
+}
+
+.image{
+    -fx-background-image: url("img/Ballerina Cappuccina.png");
+    -fx-background-radius: 50%; /* або велике число, наприклад 100 */
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}

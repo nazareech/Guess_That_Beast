@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -96,6 +97,9 @@ public class LevelController {
         } catch (Exception e) {
             System.err.println("Error loading image: " + e.getMessage());
         }
+
+        // Закруглення кутів зображення
+        roundOffImageCorners(30);
 
         // Перемішуємо варіанти відповідей
         List<String> options = new ArrayList<>(meme.getOptions());
@@ -247,6 +251,10 @@ public class LevelController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-main-scene.fxml"));
         Parent root = loader.load();
 
+        //Підключаємо стилі
+        root.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
+
+
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -263,5 +271,12 @@ public class LevelController {
         option2Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
         option3Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
         option4Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
+    }
+
+    private void roundOffImageCorners (int radius){
+        Rectangle rectangle = new Rectangle(0, 0, 300, 300); // координаты x, y, ширина, высота
+        rectangle.setArcWidth(radius);
+        rectangle.setArcHeight(radius);
+        imageView.setClip(rectangle);
     }
 }

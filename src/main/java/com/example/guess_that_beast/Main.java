@@ -12,6 +12,10 @@ public class Main extends Application {
     public void start(Stage root) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view-main-scene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+
+        //Підключаємо стилі
+        scene.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
+
         root.setTitle("Brain rot Animals!");
         root.setScene(scene);
         root.show();

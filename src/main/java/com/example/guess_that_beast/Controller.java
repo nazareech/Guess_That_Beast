@@ -35,6 +35,7 @@ public class Controller {
     @FXML
     private void initialize() {
         updateLivesDisplay();
+
     }
 
     //Перехід до рівня
@@ -80,6 +81,8 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
+        root.getStylesheets().add(getClass().getResource("/Level_style.css").toExternalForm());
+
         List<Meme> memes = MemeLoader.loadMemes();
         LevelController levelController = loader.getController();
         levelController.initializeWithMemes(memes, startMemIndex, endMemIndex); // Тепер передаємо всі меми
@@ -89,6 +92,8 @@ public class Controller {
         stage.show();
 
         System.out.println("Вибрано рівень: " + buttonId);
+
+
     }
 
     private void updateLivesDisplay(){
