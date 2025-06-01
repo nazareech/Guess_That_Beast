@@ -12,17 +12,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ResultsController {
-    @FXML
-    private Label resultsLabel;
+    @FXML private Label correctAnswersLabel;
+    @FXML private Label totalTimeLabel;
+    @FXML private Label scoreLabel;
 
-    public void setResults(float correctAnswers, float totalQuestions, long seconds) {
-        resultsLabel.setText(String.format("Your result: " + correctAnswers + "/" + totalQuestions + "\nYour time: " + seconds + " seconds"));
+    public void setResults(float correctAnswers, long seconds) {
+        correctAnswersLabel.setText(String.valueOf(correctAnswers));
+        totalTimeLabel.setText(String.format(seconds + " seconds"));
+        scoreLabel.setText(String.format("1200 points"));
     }
-
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-main-scene.fxml"));
         Parent root = loader.load();
+
+        //Підключаємо стилі
+        root.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));

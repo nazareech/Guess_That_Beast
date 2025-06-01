@@ -64,7 +64,7 @@ public class LevelController {
         updateLivesDisplay(); // оновлення тексту на екрані
 
         // Фарбуємо кнопки
-        paintTheButtons();
+//        paintTheButtons();
     }
 
     private void loadLevelQuestions() {
@@ -99,7 +99,7 @@ public class LevelController {
         }
 
         // Закруглення кутів зображення
-        roundOffImageCorners(30);
+        roundOffImageCorners(30, 400);
 
         // Перемішуємо варіанти відповідей
         List<String> options = new ArrayList<>(meme.getOptions());
@@ -226,7 +226,11 @@ public class LevelController {
                 correctAnswers = 100 - ((mistakes * 100) / 5);
             }
             ResultsController controller = loader.getController();
-            controller.setResults(correctAnswers, 100, seconds); // 5 - загальна кількість завдань
+            controller.setResults(correctAnswers, seconds); // 5 - загальна кількість завдань
+
+            //Підключаємо стилі
+            root.getStylesheets().add(getClass().getResource("/Results_style.css").toExternalForm());
+
 
             Stage stage = (Stage) imageView.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -273,8 +277,8 @@ public class LevelController {
         option4Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
     }
 
-    private void roundOffImageCorners (int radius){
-        Rectangle rectangle = new Rectangle(0, 0, 300, 300); // координаты x, y, ширина, высота
+    private void roundOffImageCorners (int radius, int imgSize){
+        Rectangle rectangle = new Rectangle(0, 0, imgSize, imgSize); // координаты x, y, ширина, высота
         rectangle.setArcWidth(radius);
         rectangle.setArcHeight(radius);
         imageView.setClip(rectangle);

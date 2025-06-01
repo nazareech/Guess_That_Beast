@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.guess_that_beast.LevelController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.guess_that_beast.LevelController">
   <columnConstraints>
       <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="494.0" minWidth="0.0" prefWidth="120.0" />
@@ -19,10 +21,10 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="493.0" minWidth="10.0" prefWidth="133.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="97.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="505.0" minHeight="10.0" prefHeight="324.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="428.0" minHeight="10.0" prefHeight="173.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="208.0" minHeight="0.0" prefHeight="208.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="108.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="580.0" minHeight="10.0" prefHeight="430.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="428.0" minHeight="10.0" prefHeight="302.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="298.0" minHeight="0.0" prefHeight="230.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -35,55 +37,73 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="option2Button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Frulli frulla" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="option2Button" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Frulli frulla" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="option3Button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Tripi tropa Tropa tripa" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="option3Button" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Tripi tropa Tropa tripa" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="option1Button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Frigo Camelo" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="option1Button" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Frigo Camelo" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
 
-            <Button fx:id="option4Button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Bobrito bandito" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="option4Button" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAnswer" prefHeight="50.0" prefWidth="160.0" text="Bobrito bandito" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>
 
-      <ImageView fx:id="imageView" fitHeight="300" fitWidth="300" layoutX="150" layoutY="150" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fx:id="imageView" fitHeight="400.0" fitWidth="400.0" layoutX="150" layoutY="150" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
-            <Image url="@../../../img/tripi tropa tropa tripa.jpg" />
+            <Image url="@../../../img/bri%20bri%20bicus%20dicus%20de%20bicus%20medicus.png" />
          </image>
       </ImageView>
-      <Button fx:id="goToMain" alignment="CENTER" mnemonicParsing="false" onAction="#goToMenuButton" prefHeight="28.0" prefWidth="78.0" text="Beack" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+      <Button fx:id="goToMain" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#goToMenuButton" prefHeight="60.0" prefWidth="160.0" text="Quite" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
            <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
            </GridPane.margin>
+          <font>
+              <Font name="System Bold" size="18.0" />
+          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
        </Button>
       <VBox fx:id="feedbackVBox" alignment="CENTER" prefHeight="208.0" prefWidth="347.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <children>
-            <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="350.0" text="Your answer is incorrect">
+            <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="350.0" text="Your answer is incorrect" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -91,7 +111,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="correctAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="356.0" text="Correct answer is:">
+            <Label fx:id="correctAnswerLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="356.0" text="Correct answer is:" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -99,22 +119,31 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="39.0" prefWidth="106.0" text="Next">
+            <Button fx:id="nextButton" maxWidth="500.0" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="39.0" prefWidth="106.0" text="Next">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="exitButton" layoutX="131.0" layoutY="145.0" mnemonicParsing="false" onAction="#exitToMenu" prefHeight="39.0" prefWidth="106.0" text="Exit">
+            <Button fx:id="exitButton" layoutX="131.0" layoutY="145.0" maxWidth="500.0" mnemonicParsing="false" onAction="#exitToMenu" prefHeight="39.0" prefWidth="106.0" text="Exit">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </VBox>
-      <Label fx:id="lives" text="Lives" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+      <Label fx:id="lives" prefHeight="27.0" prefWidth="80.0" text="Lives" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
@@ -122,5 +151,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <ProgressBar fx:id="progresBar" prefHeight="18.0" prefWidth="603.0" progress="0.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
