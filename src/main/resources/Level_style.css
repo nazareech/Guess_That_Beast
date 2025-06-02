@@ -2,15 +2,48 @@
     -fx-background-color: fcfaf8;
 }
 
-.button{
+.button, #feedbackGrigPlane{
     -fx-background-color: f3ede7;
     -fx-background-radius: 30px;
     -fx-text-fill: black;
 }
+#nextButton{
+    -fx-background-color: e57f19;
+    -fx-background-radius: 30px;
+    -fx-text-fill: black;
+}
+#goToMain{
+    -fx-background-color: fcfaf8;
+    -fx-text-fill: black;
+}
+#exitButton{
+    -fx-background-color: e54919;
+    -fx-background-radius: 30px;
+    -fx-text-fill: f3ede7;
+}
 
+#correctAnswerLabel{
+    -fx-text-fill: a67e54;
+    /*-fx-text-fill: dc9349;*/
+}
 .image{
     -fx-background-image: url("img/Ballerina Cappuccina.png");
     -fx-background-radius: 50%; /* або велике число, наприклад 100 */
     -fx-background-size: cover;
     -fx-background-position: center;
 }
+
+.progress-bar {
+    -fx-pref-height: 20px;
+    -fx-background-color: #dcdcdc; /* фон */
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #999;
+}
+
+.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff); /* градієнт заповнення */
+    -fx-background-radius: 10px;
+}
+
+

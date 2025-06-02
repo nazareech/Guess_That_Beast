@@ -8,9 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -27,9 +28,10 @@ public class LevelController {
     @FXML private ImageView imageView;
 
     @FXML private Label lives;
+    @FXML private ProgressBar progressIndificator;
 
     //Fail answer
-    @FXML private VBox feedbackVBox;
+    @FXML private GridPane feedbackGrigPlane;
     @FXML private Label feedbackLabel;
     @FXML private Label correctAnswerLabel;
     @FXML private Button nextButton;
@@ -49,7 +51,7 @@ public class LevelController {
 
     public void initializeWithMemes(List<Meme> memes, int startMemIndex, int endMemIndex) {
         this.allMemes = new ArrayList<>(memes.subList(startMemIndex, endMemIndex));
-        feedbackVBox.setVisible(false); // Виключаємо вікно фітбеку
+        feedbackGrigPlane.setVisible(false); // Виключаємо вікно фітбеку
         exitButton.setVisible(false);   // Виключаємо кнопку виходу з рівня
 
         // Ініціалізація першого питання
@@ -145,28 +147,23 @@ public class LevelController {
 
         if (isCorrect) {
             feedbackLabel.setText("Great!");
-            feedbackLabel.setStyle("-fx-background-color: green; -fx-text-fill: white;");
-            correctAnswerLabel.setStyle("-fx-text-fill: white;");
             correctAnswerLabel.setText("");
-            nextButton.setText("Next");
-            nextButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
+            nextButton.setText("Continue");
+
+            progress();
 
         } else {
             mistakes++;
-
-            feedbackLabel.setText("Your answer is incorrect!");
-            feedbackLabel.setStyle("-fx-background-color: red; -fx-text-fill: white;");
-            correctAnswerLabel.setText("The correct answer is: " + correctAnswer);
-            correctAnswerLabel.setStyle("-fx-text-fill: green;");
-            nextButton.setText("Next");
-            nextButton.setStyle("-fx-background-color: green; -fx-text-fill: white;");
+            feedbackLabel.setText("Incorrect answer!");
+            correctAnswerLabel.setText("The correct answer was: " + correctAnswer);
+            nextButton.setText("Continue");
 
             GameState.getInstance().loseLife(); // зменшення життів
             updateLivesDisplay();               // оновлення Життів на екрані
         }
 
         if (GameState.getInstance().getLives() > 0) {
-            feedbackVBox.setVisible(true);
+            feedbackGrigPlane.setVisible(true);
             exitButton.setVisible(false);
         }else if (GameState.getInstance().getLives() == 0) {
             coverageOfEndOfLife();
@@ -174,20 +171,16 @@ public class LevelController {
     }
 
     private void confirmationOfMenuReturning () {
-        feedbackVBox.setVisible(true);
+        feedbackGrigPlane.setVisible(true);
         feedbackLabel.setText("Do you really want to go back to the menu?");
-        feedbackLabel.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
-        correctAnswerLabel.setStyle("-fx-background-color: blue; -fx-text-fill: red;");
         correctAnswerLabel.setText("You will lose your points ");
 
-        nextButton.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
         nextButton.setText("Continue");
         exitButton.setVisible(true); // Включаємо кнопку виходу з рівня
-        exitButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
     }
 
     private void coverageOfEndOfLife () {
-        feedbackVBox.setVisible(true);
+        feedbackGrigPlane.setVisible(true);
         feedbackLabel.setText("Unfortunately, you have lost all your lives");
         feedbackLabel.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
         correctAnswerLabel.setStyle("-fx-background-color: blue; -fx-text-fill: red;");
@@ -200,7 +193,7 @@ public class LevelController {
     }
 
     private void hideFeedback() {
-        feedbackVBox.setVisible(false);
+        feedbackGrigPlane.setVisible(false);
     }
 
     private void enableAnswerButtons(boolean enabled) {
@@ -270,17 +263,25 @@ public class LevelController {
         System.out.println("Lives: " + currentLives);
     }
 
-    private void paintTheButtons(){
-        option1Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
-        option2Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
-        option3Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
-        option4Button.setStyle("-fx-background-color: #89A8AE; -fx-text-fill: #F5F5F3;");
-    }
-
     private void roundOffImageCorners (int radius, int imgSize){
         Rectangle rectangle = new Rectangle(0, 0, imgSize, imgSize); // координаты x, y, ширина, высота
         rectangle.setArcWidth(radius);
         rectangle.setArcHeight(radius);
         imageView.setClip(rectangle);
+    }
+
+    private void progress(){
+        double progresSet = (100 / currentLevelMemes.size());
+
+        System.out.println("Розмір масиву з мемами: " + currentLevelMemes.size());
+
+        double currentProgress = progressIndificator.getProgress();
+        System.out.println("Прогрес за один рівень становить: " + progresSet);
+
+        if (currentProgress <= 0){
+            progressIndificator.setProgress(progresSet / 100);
+        }else {
+            progressIndificator.setProgress(currentProgress + progresSet / 100);
+        }
     }
 }

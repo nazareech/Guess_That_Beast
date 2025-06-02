@@ -47,32 +47,32 @@ public class Controller {
         switch (buttonId) {
             case "level1":
                 startMemIndex = 0;
-                endMemIndex = 4;
+                endMemIndex = 5;
                 break;
 
             case "level2":
                 startMemIndex = 5;
-                endMemIndex = 9;
+                endMemIndex = 10;
                 break;
 
             case "level3":
                 startMemIndex = 10;
-                endMemIndex = 14;
+                endMemIndex = 15;
                 break;
 
             case "level4":
                 startMemIndex = 15;
-                endMemIndex = 19;
+                endMemIndex = 20;
                 break;
 
             case "level5":
                 startMemIndex = 20;
-                endMemIndex = 24;
+                endMemIndex = 25;
                 break;
 
             case "level6":
                 startMemIndex = 25;
-                endMemIndex = 29;
+                endMemIndex = 30;
                 break;
 
         }
