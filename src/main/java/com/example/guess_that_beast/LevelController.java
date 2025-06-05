@@ -46,6 +46,9 @@ public class LevelController {
     private Meme currentMeme;
     private boolean wasLastAnswerCorrect;
 
+    private GameStateManager gameStateManager = new GameStateManager();
+    private LivesManager livesManager = new LivesManager(gameStateManager);
+
     private long levelStartTime;
     private int currentLives;
 
@@ -64,9 +67,6 @@ public class LevelController {
 
         levelStartTime = System.currentTimeMillis();
         updateLivesDisplay(); // оновлення тексту на екрані
-
-        // Фарбуємо кнопки
-//        paintTheButtons();
     }
 
     private void loadLevelQuestions() {
@@ -158,14 +158,14 @@ public class LevelController {
             correctAnswerLabel.setText("The correct answer was: " + correctAnswer);
             nextButton.setText("Continue");
 
-            GameState.getInstance().loseLife(); // зменшення життів
-            updateLivesDisplay();               // оновлення Життів на екрані
+            livesManager.loseLife(); // зменшення життів
+            updateLivesDisplay();   // оновлення Життів на екрані та запис
         }
 
-        if (GameState.getInstance().getLives() > 0) {
+        if (livesManager.getCurrentLives() > 0) {
             feedbackGrigPlane.setVisible(true);
             exitButton.setVisible(false);
-        }else if (GameState.getInstance().getLives() == 0) {
+        }else if (livesManager.getCurrentLives() == 0) {
             coverageOfEndOfLife();
         }
     }
@@ -182,14 +182,11 @@ public class LevelController {
     private void coverageOfEndOfLife () {
         feedbackGrigPlane.setVisible(true);
         feedbackLabel.setText("Unfortunately, you have lost all your lives");
-        feedbackLabel.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
-        correctAnswerLabel.setStyle("-fx-background-color: blue; -fx-text-fill: red;");
-        correctAnswerLabel.setText("You will lose your points");
+        correctAnswerLabel.setText("");
 
         goToMain.setDisable(true);
         nextButton.setVisible(false);
         exitButton.setVisible(true); // Включаємо кнопку виходу з рівня
-        exitButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
     }
 
     private void hideFeedback() {
@@ -258,10 +255,11 @@ public class LevelController {
     }
 
     private void updateLivesDisplay(){
-        currentLives = GameState.getInstance().getLives();
+        currentLives = livesManager.getCurrentLives();
         lives.setText("Lives: " + currentLives);
         System.out.println("Lives: " + currentLives);
     }
+
 
     private void roundOffImageCorners (int radius, int imgSize){
         Rectangle rectangle = new Rectangle(0, 0, imgSize, imgSize); // координаты x, y, ширина, высота

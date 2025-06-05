@@ -1,5 +1,4 @@
 package com.example.guess_that_beast;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,3 +24,14 @@ public class Main extends Application {
         launch();
     }
 }
+
+/*
+*   Додати логіку ПОІНТІВ
+*за які можна буде поновити життя
+*
+*   Додати магазин
+*
+*   Неможливість підійти до рівня коли перший не розблоковано
+*
+*   Неможливо обрати рівень коли нема сердець
+ */

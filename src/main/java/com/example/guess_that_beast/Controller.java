@@ -32,9 +32,14 @@ public class Controller {
     private int startMemIndex;
     private int endMemIndex;
 
+    GameStateManager gameStateManager = new GameStateManager();
+    private LivesManager livesManager = new LivesManager(gameStateManager);
+
+
     @FXML
     private void initialize() {
         updateLivesDisplay();
+
 
     }
 
@@ -97,7 +102,7 @@ public class Controller {
     }
 
     private void updateLivesDisplay(){
-        int getLives = GameState.getInstance().getLives();
+        int getLives = livesManager.getCurrentLives();
         lives.setText("Lives: " + getLives);
         System.out.println("Lives: " + getLives);
     }
