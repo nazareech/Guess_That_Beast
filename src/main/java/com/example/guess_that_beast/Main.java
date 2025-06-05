@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+    private static final WindowStateManager windowStateManager = new WindowStateManager();
+
     @Override
     public void start(Stage root) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view-main-scene.fxml"));
@@ -14,15 +16,26 @@ public class Main extends Application {
 
         //Підключаємо стилі
         scene.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
-
         root.setTitle("Brain rot Animals!");
+
         root.setScene(scene);
         root.show();
+
+        // Збереження стану при зміні розміру/позиції
+        root.xProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setX(newVal.doubleValue()));
+        root.yProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setY(newVal.doubleValue()));
+        root.widthProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setWidth(newVal.doubleValue()));
+        root.heightProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setHeight(newVal.doubleValue()));
+    }
+
+    public static WindowStateManager getWindowStateManager() {
+        return windowStateManager;
     }
 
     public static void main(String[] args) {
         launch();
     }
+
 }
 
 /*

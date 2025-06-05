@@ -30,6 +30,15 @@ public class ResultsController {
         root.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        // Встановлення позиції та розміру зі збереженого стану
+        WindowStateManager stateManager = Main.getWindowStateManager();
+        stage.setX(stateManager.getX());
+        stage.setY(stateManager.getY());
+        stage.setWidth(stateManager.getWidth());
+        stage.setHeight(stateManager.getHeight());
+
+
         stage.setScene(new Scene(root));
         stage.show();
     }
