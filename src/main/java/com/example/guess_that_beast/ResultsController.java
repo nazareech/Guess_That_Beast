@@ -16,10 +16,10 @@ public class ResultsController {
     @FXML private Label totalTimeLabel;
     @FXML private Label scoreLabel;
 
-    public void setResults(float correctAnswers, long seconds) {
+    public void setResults(float correctAnswers, long seconds, int points) {
         correctAnswersLabel.setText(String.valueOf(correctAnswers));
         totalTimeLabel.setText(String.format(seconds + " seconds"));
-        scoreLabel.setText(String.format("1200 points"));
+        scoreLabel.setText(String.format(points + " points"));
     }
     @FXML
     private void goBack(ActionEvent event) throws IOException {

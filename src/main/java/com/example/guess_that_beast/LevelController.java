@@ -48,6 +48,7 @@ public class LevelController {
 
     private GameStateManager gameStateManager = new GameStateManager();
     private LivesManager livesManager = new LivesManager(gameStateManager);
+    private ScoreManager scoreManager = new ScoreManager(gameStateManager);
 
     private long levelStartTime;
     private int currentLives;
@@ -206,7 +207,7 @@ public class LevelController {
             Parent root = loader.load();
 
             long duration = System.currentTimeMillis() - levelStartTime;
-            long seconds = duration / 1000;
+            int seconds = (int)duration / 1000;
             System.out.println("Рівень пройдено за " + seconds + " секунд");
 
             float correctAnswers;
@@ -215,8 +216,11 @@ public class LevelController {
             }else {
                 correctAnswers = 100 - ((mistakes * 100) / 5);
             }
+
+            int points = scoreManager.calculatePoints(mistakes, currentLevelMemes.size(), seconds);
+
             ResultsController controller = loader.getController();
-            controller.setResults(correctAnswers, seconds); // 5 - загальна кількість завдань
+            controller.setResults(correctAnswers, seconds, points); // 5 - загальна кількість завдань
 
             //Підключаємо стилі
             root.getStylesheets().add(getClass().getResource("/Results_style.css").toExternalForm());
