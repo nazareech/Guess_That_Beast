@@ -15,11 +15,15 @@ public class ResultsController {
     @FXML private Label correctAnswersLabel;
     @FXML private Label totalTimeLabel;
     @FXML private Label scoreLabel;
+    @FXML private Label newLevelLabel;
 
-    public void setResults(float correctAnswers, long seconds, int points) {
+    public void setResults(float correctAnswers, long seconds, int points, UnlockingLevelsManager unlockingLevelsManager, int currentLevel) {
         correctAnswersLabel.setText(String.valueOf(correctAnswers));
         totalTimeLabel.setText(String.format(seconds + " seconds"));
         scoreLabel.setText(String.format(points + " points"));
+
+        boolean isUnlockedLevel = unlockingLevelsManager.nextLevelIsUnlocked(correctAnswers, currentLevel);
+        newLevelLabel.setVisible(isUnlockedLevel);
     }
     @FXML
     private void goBack(ActionEvent event) throws IOException {
@@ -31,7 +35,7 @@ public class ResultsController {
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        // Встановлення позиції та розміру зі збереженого стану
+        // Установлення позиції та розміру зі збереженого стану
         WindowStateManager stateManager = Main.getWindowStateManager();
         stage.setX(stateManager.getX());
         stage.setY(stateManager.getY());

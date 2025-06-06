@@ -41,6 +41,7 @@ public class LevelController {
 
     private List<Meme> allMemes;
     private List<Meme> currentLevelMemes = new ArrayList<>();
+    private int numberOfCurrentLevelMemsList;
     private List<Meme> incorrectMemes = new ArrayList<>();
     private int currentMemeIndex = 0;
     private Meme currentMeme;
@@ -49,11 +50,14 @@ public class LevelController {
     private GameStateManager gameStateManager = new GameStateManager();
     private LivesManager livesManager = new LivesManager(gameStateManager);
     private ScoreManager scoreManager = new ScoreManager(gameStateManager);
+    private UnlockingLevelsManager unlockingLevelsManager = new UnlockingLevelsManager(gameStateManager);
 
     private long levelStartTime;
     private int currentLives;
 
-    public void initializeWithMemes(List<Meme> memes, int startMemIndex, int endMemIndex) {
+    private int currentLevel;
+
+    public void initializeWithMemes(List<Meme> memes, int startMemIndex, int endMemIndex, int currentLevel) {
         this.allMemes = new ArrayList<>(memes.subList(startMemIndex, endMemIndex));
         feedbackGrigPlane.setVisible(false); // Виключаємо вікно фітбеку
         exitButton.setVisible(false);   // Виключаємо кнопку виходу з рівня
@@ -61,19 +65,22 @@ public class LevelController {
         // Ініціалізація першого питання
         if (!allMemes.isEmpty()) {
             loadLevelQuestions();
-            loadNextQuestion(); // Тепер цей метод встановлює currentMeme
+            loadNextQuestion(); // Тепер цей метод установлює currentMeme
         } else {
             System.err.println("No memes loaded!");
         }
 
         levelStartTime = System.currentTimeMillis();
         updateLivesDisplay(); // оновлення тексту на екрані
+
+        this.currentLevel = currentLevel;
     }
 
     private void loadLevelQuestions() {
         int questionsCount = Math.min(5, allMemes.size());
         currentLevelMemes = new ArrayList<>(allMemes.subList(0, questionsCount));
         allMemes.removeAll(currentLevelMemes);
+        numberOfCurrentLevelMemsList = currentLevelMemes.size();
         currentMemeIndex = 0;
     }
 
@@ -206,21 +213,23 @@ public class LevelController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-results.fxml"));
             Parent root = loader.load();
 
+            // Обчислюємо час пройденя рівню
             long duration = System.currentTimeMillis() - levelStartTime;
             int seconds = (int)duration / 1000;
             System.out.println("Рівень пройдено за " + seconds + " секунд");
 
+            // Обчислюємо правильні відповіді
             float correctAnswers;
-            if((5 - mistakes) <= 0){
-                correctAnswers = 0;
-            }else {
-                correctAnswers = 100 - ((mistakes * 100) / 5);
-            }
+            if((5 - mistakes) <= 0){correctAnswers = 0;
+            }else{correctAnswers = 100 - ((mistakes * 100) / 5);}
 
-            int points = scoreManager.calculatePoints(mistakes, currentLevelMemes.size(), seconds);
+            // Обчислюємо бали за рівень
+            int points = scoreManager.calculatePoints(mistakes, numberOfCurrentLevelMemsList, seconds);
+
+            System.out.println("Всього завдань: " + currentLevelMemes.size());
 
             ResultsController controller = loader.getController();
-            controller.setResults(correctAnswers, seconds, points); // 5 - загальна кількість завдань
+            controller.setResults(correctAnswers, seconds, points, unlockingLevelsManager, currentLevel); // 5 - загальна кількість завдань
 
             //Підключаємо стилі
             root.getStylesheets().add(getClass().getResource("/Results_style.css").toExternalForm());

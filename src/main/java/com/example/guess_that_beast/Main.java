@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
 
@@ -18,14 +19,21 @@ public class Main extends Application {
         scene.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
         root.setTitle("Brain rot Animals!");
 
-        root.setScene(scene);
-        root.show();
+        // Встановлення початкових розмірів та розташування
+        root.setX(windowStateManager.getX());
+        root.setY(windowStateManager.getY());
+        root.setWidth(windowStateManager.getWidth());
+        root.setHeight(windowStateManager.getHeight());
 
         // Збереження стану при зміні розміру/позиції
         root.xProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setX(newVal.doubleValue()));
         root.yProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setY(newVal.doubleValue()));
         root.widthProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setWidth(newVal.doubleValue()));
         root.heightProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setHeight(newVal.doubleValue()));
+
+        root.setScene(scene);
+        root.show();
+
     }
 
     public static WindowStateManager getWindowStateManager() {
@@ -37,6 +45,8 @@ public class Main extends Application {
     }
 
 }
+
+
 
 /*
 *   Додати логіку ПОІНТІВ

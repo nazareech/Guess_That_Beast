@@ -1,5 +1,6 @@
 package com.example.guess_that_beast;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,28 +20,29 @@ import java.util.List;
 public class Controller {
 
     @FXML private Text levelChoice;
-
+    @FXML private Label pointsLabel;
     @FXML private Label lives;
 
-    @FXML
-    private Stage stage; // Поточна сцена
-    @FXML
-    private Scene scene; // Поточна сцена
+    @FXML private Stage stage; // Поточна сцена
+    @FXML private Scene scene; // Поточна сцена
     private Parent root; // Корінь нової сцени
 
     // індекси для вибору мемів для рівня
     private int startMemIndex;
     private int endMemIndex;
 
-    GameStateManager gameStateManager = new GameStateManager();
+    private GameStateManager gameStateManager = new GameStateManager();
     private LivesManager livesManager = new LivesManager(gameStateManager);
-
+    private ScoreManager scoreManager = new ScoreManager(gameStateManager);
 
     @FXML
     private void initialize() {
         updateLivesDisplay();
 
-
+        // Відкладена ініціалізація кнопок
+        Platform.runLater(() -> {
+            updateLevelButtons();
+        });
     }
 
     //Перехід до рівня
@@ -49,35 +51,49 @@ public class Controller {
         Button clickedButton = (Button) event.getSource();
         String buttonId = clickedButton.getId();
 
+        int currentLevel = 0;
+
         switch (buttonId) {
             case "level1":
                 startMemIndex = 0;
                 endMemIndex = 5;
+
+                currentLevel = 1;
                 break;
 
             case "level2":
                 startMemIndex = 5;
                 endMemIndex = 10;
+
+                currentLevel = 2;
                 break;
 
             case "level3":
                 startMemIndex = 10;
                 endMemIndex = 15;
+
+                currentLevel = 3;
                 break;
 
             case "level4":
                 startMemIndex = 15;
                 endMemIndex = 20;
+
+                currentLevel = 4;
                 break;
 
             case "level5":
                 startMemIndex = 20;
                 endMemIndex = 25;
+
+                currentLevel = 5;
                 break;
 
             case "level6":
                 startMemIndex = 25;
                 endMemIndex = 30;
+
+                currentLevel = 6;
                 break;
 
         }
@@ -90,21 +106,39 @@ public class Controller {
 
         List<Meme> memes = MemeLoader.loadMemes();
         LevelController levelController = loader.getController();
-        levelController.initializeWithMemes(memes, startMemIndex, endMemIndex); // Тепер передаємо всі меми
+        levelController.initializeWithMemes(memes, startMemIndex, endMemIndex, currentLevel); // Тепер передаємо всі меми
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
 
         System.out.println("Вибрано рівень: " + buttonId);
-
-
     }
 
     private void updateLivesDisplay(){
-        int getLives = livesManager.getCurrentLives();
-        lives.setText("Lives: " + getLives);
-        System.out.println("Lives: " + getLives);
+        int currentLives = livesManager.getCurrentLives();
+        int currenttPoints = scoreManager.getCurrentScore();
+
+        lives.setText("Lives: " + currentLives);
+        System.out.println("Lives: " + currentLives);
+        pointsLabel.setText("Points: " + currenttPoints);
+        System.out.println("Points: " + currenttPoints);
     }
 
+    private void updateLevelButtons() {
+        if (scene == null) {
+            scene = levelChoice.getScene(); // або будь-який інший @FXML елемент
+        }
+
+        GameData gameData = gameStateManager.loadGameData();
+        int levelsUnlocked = gameData.getLevelsUnlocked();
+
+        // Заблокуйте кнопки для рівнів, які ще не відкриті
+        for (int i = 1; i <= 6; i++) { // Якщо у вас 6 рівнів
+            Button levelButton = (Button) scene.lookup("#level" + i);
+            if (levelButton != null) {
+                levelButton.setDisable(i > levelsUnlocked);
+            }
+        }
+    }
 }

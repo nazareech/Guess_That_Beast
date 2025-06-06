@@ -84,7 +84,7 @@
          </children>
       </GridPane>
 
-      <ImageView fx:id="imageView" fitHeight="400.0" fitWidth="400.0" layoutX="150" layoutY="150" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" layoutX="150" layoutY="150" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@../../../img/bri%20bri%20bicus%20dicus%20de%20bicus%20medicus.png" />
          </image>
