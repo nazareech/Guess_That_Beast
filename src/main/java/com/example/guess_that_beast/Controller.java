@@ -98,21 +98,25 @@ public class Controller {
 
         }
 
-        String fxmlPath = "/com/example/guess_that_beast/view-level.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent root = loader.load();
+        if(livesManager.getCurrentLives()>0) {
+            String fxmlPath = "/com/example/guess_that_beast/view-level.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
 
-        root.getStylesheets().add(getClass().getResource("/Level_style.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/Level_style.css").toExternalForm());
 
-        List<Meme> memes = MemeLoader.loadMemes();
-        LevelController levelController = loader.getController();
-        levelController.initializeWithMemes(memes, startMemIndex, endMemIndex, currentLevel); // Тепер передаємо всі меми
+            List<Meme> memes = MemeLoader.loadMemes();
+            LevelController levelController = loader.getController();
+            levelController.initializeWithMemes(memes, startMemIndex, endMemIndex, currentLevel); // Тепер передаємо всі меми
 
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
 
-        System.out.println("Вибрано рівень: " + buttonId);
+            System.out.println("Вибрано рівень: " + buttonId);
+        }else{
+            levelChoice.setText("Unfortunately, you have lost all your li");
+        }
     }
 
     private void updateLivesDisplay(){

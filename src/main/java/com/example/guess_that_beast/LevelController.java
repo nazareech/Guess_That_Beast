@@ -109,7 +109,7 @@ public class LevelController {
         }
 
         // Закруглення кутів зображення
-        roundOffImageCorners(30, 400);
+        roundOffImageCorners(30, (int)imageView.getFitWidth());
 
         // Перемішуємо варіанти відповідей
         List<String> options = new ArrayList<>(meme.getOptions());
