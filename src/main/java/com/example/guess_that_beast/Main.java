@@ -21,8 +21,8 @@ public class Main extends Application {
         // Встановлення початкових розмірів та розташування
         root.setX(windowStateManager.getX());
         root.setY(windowStateManager.getY());
-        root.setWidth(windowStateManager.getWidth());
-        root.setHeight(windowStateManager.getHeight());
+        root.setWidth(800);
+        root.setHeight(900);
 
         // Збереження стану при зміні розміру/позиції
         root.xProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setX(newVal.doubleValue()));

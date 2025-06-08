@@ -244,7 +244,6 @@ public class LevelController {
 
     @FXML
     private void goToMenuButton(ActionEvent event) {
-
         Button clickedButton = (Button) event.getSource();
         String clickedButtonId = clickedButton.getId();
         if (clickedButtonId.equals("goToMain")) {

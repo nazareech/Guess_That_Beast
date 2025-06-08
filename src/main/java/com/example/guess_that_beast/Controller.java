@@ -119,6 +119,23 @@ public class Controller {
         }
     }
 
+    //Перехід до рівня
+    @FXML
+    private void openShop(ActionEvent event) throws IOException {
+
+        String fxmlPath = "/com/example/guess_that_beast/view-shop.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent root = loader.load();
+
+//        root.getStylesheets().add(getClass().getResource("/Level_style.css").toExternalForm());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        System.out.println("Перехід до магазину");
+
+    }
+
     private void updateLivesDisplay(){
         int currentLives = livesManager.getCurrentLives();
         int currenttPoints = scoreManager.getCurrentScore();
