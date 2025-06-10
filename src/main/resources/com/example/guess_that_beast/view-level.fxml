@@ -86,7 +86,7 @@
 
       <ImageView fx:id="imageView" fitHeight="400.0" fitWidth="400.0" layoutX="150" layoutY="150" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
-            <Image url="@../../../img/bri%20bri%20bicus%20dicus%20de%20bicus%20medicus.png" />
+            <Image url="@img/bri%20bri%20bicus%20dicus%20de%20bicus%20medicus.png" />
          </image>
          <GridPane.margin>
             <Insets bottom="20.0" />
@@ -113,7 +113,7 @@
          <graphic>
             <ImageView fx:id="livesImg" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../img/Interface%20icons/Live.png" />
+                  <Image url="@img/Interface%20icons/Live.png" />
                </image>
             </ImageView>
          </graphic>

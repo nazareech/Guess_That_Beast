@@ -22,7 +22,7 @@
         <rowConstraints>
       <RowConstraints maxHeight="100.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="363.0" minHeight="100.0" prefHeight="130.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="363.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="363.0" minHeight="70.0" prefHeight="80.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="2000.0" minHeight="400.0" prefHeight="440.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="363.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="254.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
@@ -99,7 +99,12 @@
 
                </children>
             </VBox>
-            <Text fx:id="levelChoice" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Challange" textAlignment="CENTER" wrappingWidth="419.13671875" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <image>
+            <Image url="@../../../img/Interface%20icons/Icon.png" />
+         </image>
+      </ImageView>
+            <Text fx:id="levelChoice" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Challenge" textAlignment="CENTER" wrappingWidth="419.13671875" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>

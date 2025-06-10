@@ -154,11 +154,25 @@ public class Controller {
             } catch (NullPointerException | IllegalArgumentException e) {
                 System.err.println("Error loading image: " + e.getMessage());
             }
+        }else{
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/Live.png").toExternalForm());
+                livesImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
         }
 
         if (currenttPoints == 0) {
             try {
                 image = new Image(getClass().getResource("/img/Interface icons/FewPoint.png").toExternalForm());
+                pointsImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }else{
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/Point.png").toExternalForm());
                 pointsImg.setImage(image);
             } catch (NullPointerException | IllegalArgumentException e) {
                 System.err.println("Error loading image: " + e.getMessage());

@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends Application {
     private static final WindowStateManager windowStateManager = new WindowStateManager();
@@ -19,12 +20,19 @@ public class Main extends Application {
         scene.getStylesheets().add(getClass().getResource("/Style/Main_menu_style.css").toExternalForm());
         root.setTitle("Brain rot Animals!");
 
-//        Image icon = new Image();
-//        root.getIcons().add(icon);
+        try {
+            URL imageUrl = Main.class.getResource("/img/Interface icons/Icon.png");
+            if (imageUrl != null) {
+                Image icon = new Image(imageUrl.toExternalForm());
+                root.getIcons().add(icon);
+            } else {
+                System.err.println("Icon resource not found: " + imageUrl);
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to load icon: " + e.getMessage());
+        }
 
-        // Встановлення початкових розмірів та розташування
-//        root.setX(windowStateManager.getX());
-//        root.setY(windowStateManager.getY());
+
         root.setWidth(1200);
         root.setHeight(900);
 
