@@ -19,10 +19,15 @@ public class Main extends Application {
         root.setTitle("Brain rot Animals!");
 
         // Встановлення початкових розмірів та розташування
-        root.setX(windowStateManager.getX());
-        root.setY(windowStateManager.getY());
-        root.setWidth(800);
+//        root.setX(windowStateManager.getX());
+//        root.setY(windowStateManager.getY());
+        root.setWidth(1200);
         root.setHeight(900);
+
+        // Встановлення мінімального розміру
+        root.setMinWidth(1100); // Мінімальна ширина
+        root.setMinHeight(800); // Мінімальна висота
+
 
         // Збереження стану при зміні розміру/позиції
         root.xProperty().addListener((obs, oldVal, newVal) -> windowStateManager.setX(newVal.doubleValue()));

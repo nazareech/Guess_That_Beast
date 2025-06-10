@@ -80,23 +80,6 @@ public class ShopController {
         }
     }
 
-    @FXML
-    private void byPoints(ActionEvent event) {
-        Button clickedButton = (Button) event.getSource();
-        String buttonId = clickedButton.getId();
-
-        switch (buttonId) {
-            case "Points500":
-                break;
-            case "Points1000":
-                break;
-            case "Points2500":
-                break;
-        }
-
-    }
-
-
     private void updateLivesDisplay() {
         int currentLives = livesManager.getCurrentLives();
         int currenttPoints = scoreManager.getCurrentScore();
@@ -106,4 +89,40 @@ public class ShopController {
         pointsLabel.setText(String.valueOf(currenttPoints));
         System.out.println("Points: " + currenttPoints);
     }
+
+
+    @FXML
+    private void byPoints(ActionEvent event) {
+        Button clickedButton = (Button) event.getSource();
+        String buttonId = clickedButton.getId();
+
+        switch (buttonId) {
+            case "Points500":
+                openDonationPage("https://donatello.to/nazareech_");
+                break;
+            case "Points1000":
+                openDonationPage("https://donatello.to/nazareech_");
+                break;
+            case "Points2500":
+                openDonationPage("https://donatello.to/nazareech_");
+                break;
+        }
+
+    }
+
+    // Метод відкриття URL у браузері
+    private void openDonationPage(String url) {
+        try {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+                java.net.URI uri = new java.net.URI(url);
+                desktop.browse(uri);
+            }
+        } catch (Exception e) {
+            System.err.println("Не вдалося відкрити URL: " + e.getMessage());
+            informationLabel.setText("Could not open the link. Please check your internet connection.");
+            informationLabel.setVisible(true);
+        }
+    }
+
 }

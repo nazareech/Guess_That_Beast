@@ -9,6 +9,10 @@
 
     /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);*/
 }
+#shopButton{
+    -fx-background-color: f3d024;
+    -fx-text-fill: e57f19;
+}
 #lives, #pointsLabel{
     -fx-background-color: f3ede7;
     -fx-background-radius: 30px;
