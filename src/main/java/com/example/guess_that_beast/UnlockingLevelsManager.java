@@ -14,6 +14,7 @@ public class UnlockingLevelsManager {
 
     public boolean nextLevelIsUnlocked(float correctAnswers, int currentLevel){
 
+        this.gameData = gameStateManager.loadGameData();
         if (currentLevel == gameData.getLevelsUnlocked()) {
             if (correctAnswers >= 50) {
                 unlockNextLevel();

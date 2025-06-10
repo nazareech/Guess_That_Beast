@@ -284,6 +284,13 @@ public class LevelController {
             } catch (NullPointerException | IllegalArgumentException e) {
                 System.err.println("Error loading image: " + e.getMessage());
             }
+        }else{
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/Live.png").toExternalForm());
+                livesImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
         }
 
         lives.setText("Lives: " + currentLives);
