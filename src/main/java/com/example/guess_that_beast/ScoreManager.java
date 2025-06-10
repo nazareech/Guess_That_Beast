@@ -32,11 +32,25 @@ public class ScoreManager {
         return finalPoints;
     }
 
+
+
     public void addPoints(int points) {
         int newPoints = gameData.getScore() + points;
         System.out.println("Отримано балів: " + points);
         System.out.println("Всього балів: " + newPoints);
         gameData.setScore(newPoints);
+        gameStateManager.saveGameData(gameData);
+    }
+
+    public void deductPoints(int points){
+        int subtractPoints = gameData.getScore() - points;
+
+        if (subtractPoints < 0) subtractPoints = 0; // Безпечна логіка
+
+        this.gameData = gameStateManager.loadGameData();
+        System.out.println("Віднято балів: " + points);
+        System.out.println("Всього балів: " + subtractPoints);
+        gameData.setScore(subtractPoints);
         gameStateManager.saveGameData(gameData);
     }
 }

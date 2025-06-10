@@ -23,6 +23,7 @@ public class GameStateManager {
 
     public void saveGameData(GameData gameData) {
         System.out.println("Збережено рівень життя: " + gameData.getLives());
+        System.out.println("Збережено всього балів: " + gameData.getScore());
         try {
             File file = new File(SAVE_FILE);
             mapper.writeValue(file, gameData);
@@ -30,7 +31,6 @@ public class GameStateManager {
         } catch (IOException e) {
             System.out.println("Не вдалося зберегти стан гри: " + e.getMessage());
         }
-
     }
 
     private GameData createDefaultGameData() {

@@ -1,0 +1,14 @@
+.root{
+    -fx-background-color: fcfaf8;
+}
+
+.button{
+    -fx-background-color: f3d024;
+    -fx-background-radius: 20px;
+    -fx-text-fill: black;
+}
+#pointsPlane, #livesPlane, #backToMenuButton, #informationLabel{
+    -fx-background-color: f3ede7;
+    -fx-background-radius: 30px;
+    -fx-text-fill: black;
+}

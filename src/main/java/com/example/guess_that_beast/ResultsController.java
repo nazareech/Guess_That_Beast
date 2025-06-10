@@ -31,7 +31,7 @@ public class ResultsController {
         Parent root = loader.load();
 
         //Підключаємо стилі
-        root.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/Style/Main_menu_style.css").toExternalForm());
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 

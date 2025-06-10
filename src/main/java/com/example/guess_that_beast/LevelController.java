@@ -28,6 +28,7 @@ public class LevelController {
     @FXML private ImageView imageView;
 
     @FXML private Label lives;
+    @FXML private ImageView livesImg;
     @FXML private ProgressBar progressIndificator;
 
     //Fail answer
@@ -232,7 +233,7 @@ public class LevelController {
             controller.setResults(correctAnswers, seconds, points, unlockingLevelsManager, currentLevel); // 5 - загальна кількість завдань
 
             //Підключаємо стилі
-            root.getStylesheets().add(getClass().getResource("/Results_style.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/Style/Results_style.css").toExternalForm());
 
 
             Stage stage = (Stage) imageView.getScene().getWindow();
@@ -258,7 +259,7 @@ public class LevelController {
         Parent root = loader.load();
 
         //Підключаємо стилі
-        root.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/Style/Main_menu_style.css").toExternalForm());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         // Встановлення позиції та розміру зі збереженого стану
@@ -274,6 +275,17 @@ public class LevelController {
 
     private void updateLivesDisplay(){
         currentLives = livesManager.getCurrentLives();
+
+        Image image;
+        if (currentLives == 0) {
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/FewLive.png").toExternalForm());
+                livesImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }
+
         lives.setText("Lives: " + currentLives);
         System.out.println("Lives: " + currentLives);
     }

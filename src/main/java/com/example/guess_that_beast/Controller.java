@@ -9,9 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class Controller {
     @FXML private Text levelChoice;
     @FXML private Label pointsLabel;
     @FXML private Label lives;
+
+    @FXML private ImageView livesImg;
+    @FXML private ImageView pointsImg;
 
     @FXML private Stage stage; // Поточна сцена
     @FXML private Scene scene; // Поточна сцена
@@ -103,7 +108,7 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
-            root.getStylesheets().add(getClass().getResource("/Level_style.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/Style/Level_style.css").toExternalForm());
 
             List<Meme> memes = MemeLoader.loadMemes();
             LevelController levelController = loader.getController();
@@ -127,7 +132,7 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
-//        root.getStylesheets().add(getClass().getResource("/Level_style.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/Style/Shop_style.css").toExternalForm());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -139,6 +144,27 @@ public class Controller {
     private void updateLivesDisplay(){
         int currentLives = livesManager.getCurrentLives();
         int currenttPoints = scoreManager.getCurrentScore();
+
+        Image image;
+
+        if (currentLives == 0) {
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/FewLive.png").toExternalForm());
+                livesImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }
+
+        if (currenttPoints == 0) {
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/FewPoint.png").toExternalForm());
+                pointsImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }
+
 
         lives.setText("Lives: " + currentLives);
         System.out.println("Lives: " + currentLives);

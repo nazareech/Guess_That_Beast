@@ -103,13 +103,20 @@
             <Cursor fx:constant="HAND" />
          </cursor>
        </Button>
-      <Label fx:id="lives" prefHeight="27.0" prefWidth="80.0" text="Lives" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+      <Label fx:id="lives" prefHeight="27.0" text="Lives" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
+         <graphic>
+            <ImageView fx:id="livesImg" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/Interface%20icons/Live.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Label>
       <ProgressBar fx:id="progressIndificator" prefHeight="18.0" prefWidth="603.0" progress="0.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <GridPane.margin>

@@ -15,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         //Підключаємо стилі
-        scene.getStylesheets().add(getClass().getResource("/Main_menu_style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/Style/Main_menu_style.css").toExternalForm());
         root.setTitle("Brain rot Animals!");
 
         // Встановлення початкових розмірів та розташування

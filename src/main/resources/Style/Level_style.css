@@ -27,7 +27,7 @@
     /*-fx-text-fill: dc9349;*/
 }
 .image{
-    -fx-background-image: url("img/Ballerina Cappuccina.png");
+    -fx-background-image: url("../img/Ballerina Cappuccina.png");
     -fx-background-radius: 50%; /* або велике число, наприклад 100 */
     -fx-background-size: cover;
     -fx-background-position: center;

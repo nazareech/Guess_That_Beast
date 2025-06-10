@@ -13,8 +13,10 @@ public class LivesManager {
     }
 
     public int getCurrentLives() {
-        checkAndRestoreLives();
+        checkAndRestoreLives(); // Відновлення життів
+        gameStateManager.saveGameData(gameData); // Зберігаємо актуальні дані
         return gameData.getLives();
+
     }
 
     public void loseLife() {
@@ -23,6 +25,17 @@ public class LivesManager {
             gameData.setLastLifeLostTime(System.currentTimeMillis());
             gameStateManager.saveGameData(gameData);
         }
+    }
+
+    public void addLifes(int numberLifes){
+        int addedLifes = gameData.getLives() + numberLifes;
+
+        if(addedLifes >= MAX_LIVES){ addedLifes = MAX_LIVES;}
+
+        System.out.println("Додано " + numberLifes + " життів");
+        this.gameData = gameStateManager.loadGameData();
+        gameData.setLives(addedLifes);
+        gameStateManager.saveGameData(gameStateManager.loadGameData());
     }
 
     private void checkAndRestoreLives() {
@@ -34,7 +47,6 @@ public class LivesManager {
         if (livesToRestore > 0 && gameData.getLives() < MAX_LIVES) {
             gameData.setLives(Math.min(MAX_LIVES, gameData.getLives() + livesToRestore));
             gameData.setLastLifeLostTime(now - (millisSinceLast % (TIME_TO_RESTORE_MINUTES * 60 * 1000)));
-            gameStateManager.saveGameData(gameData);
         }
     }
 
