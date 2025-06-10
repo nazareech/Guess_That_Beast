@@ -2,6 +2,7 @@ package com.example.guess_that_beast;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,9 @@ public class Main extends Application {
         //Підключаємо стилі
         scene.getStylesheets().add(getClass().getResource("/Style/Main_menu_style.css").toExternalForm());
         root.setTitle("Brain rot Animals!");
+
+//        Image icon = new Image();
+//        root.getIcons().add(icon);
 
         // Встановлення початкових розмірів та розташування
 //        root.setX(windowStateManager.getX());
