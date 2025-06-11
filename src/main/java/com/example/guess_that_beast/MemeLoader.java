@@ -1,6 +1,5 @@
 package com.example.guess_that_beast;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileNotFoundException;
@@ -12,7 +11,7 @@ public class MemeLoader {
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public static List<Meme> loadMemes() throws IOException {
-        try (InputStream inputStream = MemeLoader.class.getResourceAsStream("/com/example/guess_that_beast/memes.json")) {
+        try (InputStream inputStream = MemeLoader.class.getResourceAsStream("/memes.json")) {
             if (inputStream == null) {
                 throw new FileNotFoundException("JSON file not found");
             }

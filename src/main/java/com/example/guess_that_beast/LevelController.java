@@ -103,7 +103,7 @@ public class LevelController {
 
     private void displayMeme(Meme meme) {
         try {
-            Image image = new Image(getClass().getResource(meme.getImage()).toExternalForm());
+            Image image = new Image(getClass().getResourceAsStream(meme.getImage()));
             imageView.setImage(image);
         } catch (Exception e) {
             System.err.println("Error loading image: " + e.getMessage());
@@ -211,7 +211,7 @@ public class LevelController {
 
     private void showLevelResults() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-results.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views_fxml_files/view-results.fxml"));
             Parent root = loader.load();
 
             // Обчислюємо час пройденя рівню
@@ -255,7 +255,7 @@ public class LevelController {
     // Вихід до меню
     @FXML
     private void exitToMenu (ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-main-scene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views_fxml_files/view-main-scene.fxml"));
         Parent root = loader.load();
 
         //Підключаємо стилі

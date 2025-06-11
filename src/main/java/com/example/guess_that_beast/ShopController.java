@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,14 +23,59 @@ public class ShopController {
     @FXML private Label pointsLabel;
     @FXML private Label informationLabel;
 
+    @FXML private ImageView PointsImage1;
+    @FXML private ImageView PointsImage2;
+    @FXML private ImageView PointsImage3;
+
+    @FXML private ImageView oneLifeImage;
+    @FXML private ImageView threeLifesImage;
+    @FXML private ImageView fiveLifesImage;
+
+    @FXML private ImageView backToMenuButtonImage;
+    @FXML private ImageView shopImage;
+
+    @FXML private ImageView livesLabelImg;
+    @FXML private ImageView pointsLabelImage;
+
     @FXML private void initialize(){
         updateLivesDisplay();
         informationLabel.setVisible(false);
+
+        setIcons();
+    }
+
+    private void setIcons(){
+        Image image;
+        try {
+            image = new Image(getClass().getResource("/img/Interface icons/FewPoint.png").toExternalForm());
+            PointsImage1.setImage(image);
+            PointsImage2.setImage(image);
+            PointsImage3.setImage(image);
+
+            image = new Image(getClass().getResource("/img/Interface icons/Live.png").toExternalForm());
+            oneLifeImage.setImage(image);
+
+            image = new Image(getClass().getResource("/img/Interface icons/ThreeLives.png").toExternalForm());
+            threeLifesImage.setImage(image);
+
+            image = new Image(getClass().getResource("/img/Interface icons/FiveLives.png").toExternalForm());
+            fiveLifesImage.setImage(image);
+
+            image = new Image(getClass().getResource("/img/Interface icons/Back.png").toExternalForm());
+            backToMenuButtonImage.setImage(image);
+
+            image = new Image(getClass().getResource("/img/Interface icons/Shop.png").toExternalForm());
+            shopImage.setImage(image);
+
+
+        } catch (NullPointerException | IllegalArgumentException e) {
+            System.err.println("Error loading image: " + e.getMessage());
+        }
     }
 
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/guess_that_beast/view-main-scene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views_fxml_files/view-main-scene.fxml"));
         Parent root = loader.load();
 
         //Підключаємо стилі
@@ -83,6 +130,39 @@ public class ShopController {
     private void updateLivesDisplay() {
         int currentLives = livesManager.getCurrentLives();
         int currenttPoints = scoreManager.getCurrentScore();
+
+        Image image;
+        if (currentLives == 0) {
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/FewLive.png").toExternalForm());
+                livesLabelImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }else{
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/Live.png").toExternalForm());
+                livesLabelImg.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }
+
+        if (currenttPoints == 0) {
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/FewPoint.png").toExternalForm());
+                pointsLabelImage.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }else{
+            try {
+                image = new Image(getClass().getResource("/img/Interface icons/Point.png").toExternalForm());
+                pointsLabelImage.setImage(image);
+            } catch (NullPointerException | IllegalArgumentException e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }
 
         livesLabel.setText(String.valueOf(currentLives));
         System.out.println("Lives: " + currentLives);
