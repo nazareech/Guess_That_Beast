@@ -28,22 +28,28 @@ public class ResultsController {
     public void setResults(float correctAnswers, long seconds, int points, UnlockingLevelsManager unlockingLevelsManager, int currentLevel) {
         setIcons();
 
-        float totalTime;
-        if(seconds > 59){
-            int currentTime = (int) Math.max(seconds, 3);
-            System.out.println(currentTime);
-            totalTime= currentTime/60;
-        }else {
-            totalTime = (int)seconds;
+        String formattedTime;
+        if (seconds > 59) {
+            long minutes = seconds / 60; // Цілі хвилини
+            long remainingSeconds = seconds % 60; // Решта секунд
+
+            // Форматуємо рядок для відображення хвилин і секунд
+            formattedTime = String.format("%d min %d sec", minutes, remainingSeconds);
+        } else {
+            // Якщо менше 60 секунд, відображаємо тільки секунди
+            formattedTime = String.format("%d seconds", seconds);
         }
 
+        // Встановлюємо текст для кожного елемента
         correctAnswersLabel.setText(String.valueOf(correctAnswers));
-        totalTimeLabel.setText(String.format(totalTime + " seconds"));
-        scoreLabel.setText(String.format(points + " points"));
+        totalTimeLabel.setText(formattedTime); // Відображаємо час у хвилинах+секундах
+        scoreLabel.setText(String.format("%d points", points));
 
+        // Перевірка на відкриття нового рівня
         boolean isUnlockedLevel = unlockingLevelsManager.nextLevelIsUnlocked(correctAnswers, currentLevel);
         newLevelLabel.setVisible(isUnlockedLevel);
     }
+
 
     private void setIcons(){
         Image image;
