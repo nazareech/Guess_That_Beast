@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage root) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view-main-scene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/Views_fxml_files/view-main-scene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         //Підключаємо стилі

@@ -27,6 +27,7 @@ public class Controller {
 
     @FXML private ImageView livesImg;
     @FXML private ImageView pointsImg;
+    @FXML private ImageView shopImage;
 
     @FXML private Stage stage; // Поточна сцена
     @FXML private Scene scene; // Поточна сцена
@@ -104,7 +105,7 @@ public class Controller {
         }
 
         if(livesManager.getCurrentLives()>0) {
-            String fxmlPath = "/com/example/guess_that_beast/view-level.fxml";
+            String fxmlPath = "/Views_fxml_files/view-level.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
@@ -128,7 +129,7 @@ public class Controller {
     @FXML
     private void openShop(ActionEvent event) throws IOException {
 
-        String fxmlPath = "/com/example/guess_that_beast/view-shop.fxml";
+        String fxmlPath = "/Views_fxml_files/view-shop.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
@@ -177,6 +178,13 @@ public class Controller {
             } catch (NullPointerException | IllegalArgumentException e) {
                 System.err.println("Error loading image: " + e.getMessage());
             }
+        }
+
+        try {
+            image = new Image(getClass().getResource("/img/Interface icons/Shop.png").toExternalForm());
+            shopImage.setImage(image);
+        } catch (NullPointerException | IllegalArgumentException e) {
+            System.err.println("Error loading image: " + e.getMessage());
         }
 
 

@@ -156,9 +156,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="shopImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../img/Interface%20icons/Shop.png" />
+                  <Image  url="@../../../img/Interface%20icons/Shop.png" />
                </image>
             </ImageView>
          </graphic>
