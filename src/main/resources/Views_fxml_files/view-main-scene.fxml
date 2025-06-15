@@ -99,7 +99,7 @@
 
                </children>
             </VBox>
-      <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <ImageView fx:id="mainIconImage" fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <image>
             <Image url="@../../../img/Interface%20icons/Icon.png" />
          </image>

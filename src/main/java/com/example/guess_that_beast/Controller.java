@@ -28,6 +28,7 @@ public class Controller {
     @FXML private ImageView livesImg;
     @FXML private ImageView pointsImg;
     @FXML private ImageView shopImage;
+    @FXML private ImageView mainIconImage;
 
     @FXML private Stage stage; // Поточна сцена
     @FXML private Scene scene; // Поточна сцена
@@ -183,6 +184,13 @@ public class Controller {
         try {
             image = new Image(getClass().getResource("/img/Interface icons/Shop.png").toExternalForm());
             shopImage.setImage(image);
+        } catch (NullPointerException | IllegalArgumentException e) {
+            System.err.println("Error loading image: " + e.getMessage());
+        }
+
+        try {
+            image = new Image(getClass().getResource("/img/Interface icons/Icon.png").toExternalForm());
+            mainIconImage.setImage(image);
         } catch (NullPointerException | IllegalArgumentException e) {
             System.err.println("Error loading image: " + e.getMessage());
         }

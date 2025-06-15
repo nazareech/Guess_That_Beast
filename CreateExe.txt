@@ -1,0 +1,47 @@
+jpackage -t exe  --name Guess_That_Beast --app-version 1.0 --input out\artifacts\Guess_That_Beast_jar  --dest E:\Learning-Java\Guess That Beast\Guess That Beast\installer   --main-jar Guess_That_Beast.jar --module-path jars --add-modules javafx.controls,javafx.graphics,javafx.fxml,javafx.base --win-shortcut --win-menu
+
+jpackage --input "E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts" --main-jar "Guess_That_Beast.jar" --main-class "com.example.guess_that_beast.OpenApp" --output "E:\Learning-Java\Guess That Beast\Guess That Beast\installer" --name "Guess_That_Beast" --type exe
+
+jpackage ^
+    --input "E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts" ^
+    --main-jar "Guess_That_Beast.jar" ^
+    --main-class "com.example.guess_that_beast.OpenApp" ^
+    --output "D:\MyJavaProject" ^
+    --name "Guess_That_Beast" ^
+    --type exe
+
+jpackage --input "E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts" --main-jar "Guess_That_Beast.jar" --main-class "com.example.guess_that_beast.OpenApp" --dest "D:\MyJavaProject" --name "Guess_That_Beast" --type exe
+
+E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts\Guess_That_Beast_jar
+
+jpackage ^
+    --input "E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts\Guess_That_Beast_jar" ^
+    --main-jar "Guess_That_Beast.jar" ^
+    --main-class "com.example.guess_that_beast.OpenApp" ^
+    --dest "E:\Learning-Java\Guess That Beast\Guess That Beast\installer" ^
+    --name "Guess_That_Beast" ^
+    --type exe
+   --jlink-options "--strip-debug --no-header-files --no-man-pages"
+   --java-options "-Djava.util.logging.config.file=logging.properties"
+
+jpackage ^
+    --input "E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts\Guess_That_Beast_jar" ^
+    --main-jar "Guess_That_Beast.jar" ^
+    --main-class "com.example.guess_that_beast.OpenApp" ^
+    --dest "E:\Learning-Java\Guess That Beast\Guess That Beast\installer" ^
+    --name "Guess_That_Beast" ^
+    --type exe^
+   --jlink-options "--strip-debug --no-header-files --no-man-pages"^
+   --java-options "-Djava.util.logging.config.file=logging.properties"
+
+
+   jpackage ^
+       --input "E:\Learning-Java\Guess That Beast\Guess That Beast\out\artifacts\Guess_That_Beast_jar" ^
+       --main-jar "Guess_That_Beast.jar" ^
+       --main-class "com/example/guess_that_beast/OpenApp" ^
+       --dest "E:\Learning-Java\Guess That Beast\Guess That Beast\installer" ^
+       --name "Guess_That_Beast" ^
+       --app-version 1.4^
+       --type exe^
+       --icon "E:\Learning-Java\Guess That Beast\Guess That Beast\src\main\resources\img\Interface icons\Icon.ico"
+

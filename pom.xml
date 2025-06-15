@@ -72,17 +72,10 @@
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.guess_that_beast/com.example.guess_that_beast.Main
-                            </mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
-                            <noManPages>true</noManPages>
-                            <stripDebug>true</stripDebug>
-                            <noHeaderFiles>true</noHeaderFiles>
+                            <mainClass>com.example.guess_that_beast/com.example.guess_that_beast.OpenApp</mainClass>
+                            <javafx.mainModule>com.example.guess_that_beast</javafx.mainModule>
                         </configuration>
                     </execution>
                 </executions>
@@ -91,7 +84,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.1.1</version>
-
                 <configuration>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -102,7 +94,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-
                 <executions>
                     <execution>
                         <id>make-assembly</id>
@@ -112,7 +103,6 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
         </plugins>
     </build>
