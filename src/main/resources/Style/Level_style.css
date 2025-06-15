@@ -7,6 +7,12 @@
     -fx-background-radius: 30px;
     -fx-text-fill: black;
 }
+.button:hover{
+    -fx-background-color: f3ede7;
+    -fx-background-radius: 30px;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
 #nextButton{
     -fx-background-color: e57f19;
     -fx-background-radius: 30px;

@@ -1,20 +1,38 @@
 .root{
-    -fx-background-color: fcfaf8;
+    -fx-background-color: #fcfaf8;
 }
 
 .button{
-    -fx-background-color: e57f19;
+    -fx-background-color: #e57f19;
     -fx-background-radius: 15px;
     -fx-text-fill: black;
 
     /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);*/
 }
-#shopButton{
-    -fx-background-color: f3d024;
-    -fx-text-fill: e57f19;
+.button:hover{
+    -fx-background-color: #c46a0f;
+    -fx-background-radius: 15px;
+    -fx-text-fill: #f3ede7;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
 }
+
+#mainIconImage:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+#shopButton{
+    -fx-background-color: #f3d024;
+    -fx-text-fill: #e57f19;
+}
+
+#shopButton:hover{
+    -fx-background-color: #caad1d;
+    -fx-text-fill: #f78d23;
+}
+
 #lives, #pointsLabel{
-    -fx-background-color: f3ede7;
+    -fx-background-color: #f3ede7;
     -fx-background-radius: 30px;
     -fx-text-fill: black;
 }

@@ -1,14 +1,20 @@
 .root{
-    -fx-background-color: fcfaf8;
+    -fx-background-color: #fcfaf8;
 }
 
 .button{
-    -fx-background-color: f3d024;
+    -fx-background-color: #f3d024;
     -fx-background-radius: 20px;
     -fx-text-fill: black;
 }
+.button:hover{
+    -fx-background-color: #f3d024;
+    -fx-background-radius: 20px;
+    -fx-text-fill: #c46a0f;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
 #pointsPlane, #livesPlane, #backToMenuButton, #informationLabel{
-    -fx-background-color: f3ede7;
+    -fx-background-color: #f3ede7;
     -fx-background-radius: 30px;
     -fx-text-fill: black;
 }
