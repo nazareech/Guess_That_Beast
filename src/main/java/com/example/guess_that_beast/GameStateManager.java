@@ -11,10 +11,10 @@ import java.nio.file.Files;
 import java.util.Base64;
 
 public class GameStateManager {
-    private static final boolean DEV_MODE = true; // Увімкнути режим розробки
+    private static final boolean DEV_MODE = false; // Увімкнути режим розробки
 
     private static final String SAVE_FILE = "gamestate.json";
-    private static final String ENCRYPTION_KEY = "YourStrongKey123"; // 16 символів
+    private static final String ENCRYPTION_KEY = "MyStrongKey123"; // 16 символів
     private final ObjectMapper mapper = new ObjectMapper();
 
     public GameData loadGameData() {
