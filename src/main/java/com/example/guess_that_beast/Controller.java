@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -41,6 +42,7 @@ public class Controller {
     private GameStateManager gameStateManager = new GameStateManager();
     private LivesManager livesManager = new LivesManager(gameStateManager);
     private ScoreManager scoreManager = new ScoreManager(gameStateManager);
+    private UnlockingLevelsManager unlockingLevelsManager = new UnlockingLevelsManager(gameStateManager);
 
     @FXML
     private void initialize() {
@@ -104,6 +106,7 @@ public class Controller {
                 break;
 
         }
+        loadLevel(currentLevel);
 
         if(livesManager.getCurrentLives()>0) {
             String fxmlPath = "/Views_fxml_files/view-level.fxml";
@@ -125,6 +128,23 @@ public class Controller {
             levelChoice.setText("Unfortunately, you have lost all your li");
         }
     }
+
+    public void loadLevel(int level) {
+        try {
+           unlockingLevelsManager.validateLevel(level); // Перевіряємо рівень
+            System.out.println("Завантажується рівень: " + level);
+        } catch (InvalidLevelException e) {
+            showErrorDialog(e.getMessage());
+        }
+    }
+    private void showErrorDialog(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Помилка рівня");
+        alert.setHeaderText("Неможливо завантажити рівень.");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
     //Перехід до рівня
     @FXML

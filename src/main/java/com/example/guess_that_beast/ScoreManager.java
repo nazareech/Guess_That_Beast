@@ -1,6 +1,6 @@
 package com.example.guess_that_beast;
 
-public class ScoreManager {
+public class ScoreManager implements Manager {
     private GameStateManager gameStateManager;
     private GameData gameData;
 
@@ -32,7 +32,11 @@ public class ScoreManager {
         return finalPoints;
     }
 
+    @Override
+    public void initialize() {
+        System.out.println("ScoreManager has been initialized!");
 
+    }
 
     public void addPoints(int points) {
         int newPoints = gameData.getScore() + points;

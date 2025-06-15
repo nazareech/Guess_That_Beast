@@ -1,6 +1,6 @@
 package com.example.guess_that_beast;
 
-public class WindowStateManager {
+public class WindowStateManager implements Manager {
     private double x = 0; // Збережене положення по X
     private double y = 0; // Збережене положення по Y
     private double width = 800; // Ширина за замовчуванням
@@ -38,4 +38,8 @@ public class WindowStateManager {
         this.height = height;
     }
 
+    @Override
+    public void initialize() {
+        System.out.println("WindowStateManager has been initialized!");
+    }
 }
