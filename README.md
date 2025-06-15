@@ -67,7 +67,7 @@ You can download the Windows version here:
 
 ---
 
-##💡 Future Plans:
+## 💡 Future Plans:
   - Expand shop with new features (e.g. hints).
   - Add more levels.
   - Enhance visuals with effects and animations.
